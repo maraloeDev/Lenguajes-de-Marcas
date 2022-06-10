@@ -1,0 +1,9 @@
+<!ELEMENT Persona (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ATTLIST nacimiento dia ID #REQUIRED>
+<!ATTLIST nacimiento mes ID #REQUIRED>
+<!ATTLIST nacimiento anio ID #REQUIRED>
+<!ENTITY dirección SYSTEM "calle">
+<!ENTITY dirección SYSTEM "poblacion">
+<!ENTITY dirección SYSTEM "provincia">
+<!ENTITY dirección SYSTEM "cpostal">

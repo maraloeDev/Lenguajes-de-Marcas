@@ -1,0 +1,147 @@
+1
+a. ¿Cuántos libros han sido publicados en el año 2000?
+count(//book[starts-with(publish_date,'2000')])
+
+//catalog/count(book[substring(publish_date,1,4)="2000"])
+
+
+
+b.- Muestra un listado con el título del título del libro cuyo precio oscila entre 20 € y 50 €
+//book[number(price)>20 and number(price)<50]/title
+
+
+//book[number(price) < 50][number(price) > 20]/title
+
+
+2.
+a.- ¿Cuál es el precio medio según el género de libro? (1,4 puntos)
+for $genero in distinct-values(//book/genre)
+let $media:= avg(//book[genre=$genero]/price)
+return concat($genero,'-',$media)
+
+
+b.- ¿Cuántos libros ha escrito cada escritor y cual es el precio medio de los libros que ha escrito? (1,4 puntos)
+for $autor in distinct-values(//book/author)
+let $media:= avg(//book[author=$autor]/price),
+    $cuenta:= count(//book[author=$autor]/price)	
+return concat($autor,'- precio medio de los libros: ',$media,'- ha escrito ',$cuenta,' libro(s)')
+
+c.- Mostrar el título y precio de los libros de género Horror y Romance (1,4 puntos)
+for $genero in distinct-values(//book[genre='Horror' or genre='Romance']/genre)
+let $titprec:=//book[genre=$genero]/concat(title,'-',price)
+return $titprec
+
+for $lib in //book
+let $rom:=$lib[genre='Romance']
+let $hor:=$lib[genre='Horror']
+return if($rom)
+then <Romance>{data(concat($rom/title,' ',$rom/price))}</Romance>
+else if($hor)
+then <Horror>{data(concat($hor/title,' ',$hor/price))}</Horror>
+else()
+
+for $genre in distinct-values(//book[genre="Horror" or genre="Romance"]/genre)
+return //book[genre=$genre]
+
+
+for $libros in //catalog/book
+let $titulo:= $libros/title, $precio:= $libros/price, $genero:= $libros/genre
+where $libros/genre="Horror" or $libros/genre="Romance"
+return 
+<g>
+<titulo>{data($titulo)}</titulo> 
+<precio>{data($precio)}</precio> 
+<genero>{data($genero)}</genero>
+</g>
+
+
+for $libros in //catalog/book[genre="Horror" or genre="Romance"]
+let $titulo:= $libros/title, $precio:= $libros/price, $genero:= $libros/genre
+return 
+<g>
+<titulo>{data($titulo)}</titulo> 
+<precio>{data($precio)}</precio> 
+<genero>{data($genero)}</genero>
+</g>
+
+
+d.- Mostrar el título concatenado con el identificador del libro más caro y del más barato (1,4 puntos)
+for $libro in //book
+let $maxprice:=(max(//book/price)),
+ $minprice:=(min(//book/price)),
+ $tit_id:=(//book[price=$maxprice or price=$minprice]
+/concat(data(@id),'-',title))
+return if($libro[price=$maxprice])
+	then <caro>{$libro/concat(data(@id),'-',title)}</caro>
+	else if($libro[price=$minprice])
+	then <barato>{$libro/concat(data(@id),'-',title)}</barato>
+	else()
+
+
+for $book in //book
+let $max_precio:=max(/catalog/book/price), $min_price:=min(/catalog/book/price)
+return if($book[price=$max_precio or price=$min_price])
+then concat($book/@id,"--> ",$book/price)
+else()
+
+for $book in //book[price=max(//book/price) or price=min(//book/price)]
+	return concat('Título -> ', $book/title, ' · Id -> ', $book/@id)
+
+
+
+for $title in //book/title
+	let $min:=//book[price=min(//book/price) and title=$title]/title
+	let $max:=//book[price=max(//book/price) and title=$title]/title
+	return if (//book/title=$max)
+	then concat('Libro mas caro: ', $max, '-', $max/../data(@id))
+	else if (//book/title=$min)
+	then concat('Libro mas barato: ', $min, '-', $min/../data(@id))
+	else()
+
+
+3-
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aeropuerto[
+<!ELEMENT aeropuerto(nombre,vuelos,fecha)>
+	<!ELEMENT nombre(#PCDATA)>
+	<!ELEMENT vuelos(vuelo*)>
+		<!ELEMENT vuelo(diario?,origen,destino,hora-salida,hora-llegada)>
+			<!ELEMENT diario EMPTY>
+			<!ELEMENT origen(#PCDATA)>
+			<!ELEMENT destino(#PCDATA)>
+			<!ELEMENT hora-salida(#PCDATA)>
+			<!ELEMENT hora-llegada(#PCDATA)>
+			<!ATTLIST vuelo
+				código ID #REQUIRED
+				estado CDATA (R|C)>
+	<!ELEMENT fecha(#PCDATA)>
+]>
+
+
+<aeropuerto>
+	<nombre>JFK</nombre>
+	<vuelos>
+		<vuelo código="V22" estado="R">
+ 			<diario />
+			<origen>New York</origen>
+ 			<destino>Chicago</destino>
+ 			<hora-salida>9:30</hora-salida>
+ 			<hora-llegada>11:30</hora-llegada>
+ 		</vuelo>
+ 		<vuelo código="V23" estado="C">
+ 			<origen>New York</origen>
+ 			<destino>Miami</destino>
+ 			<hora-salida>10:15</hora-salida>
+ 			<hora-llegada>11:15</hora-llegada>
+ 		</vuelo>
+ 	</vuelos>
+ 	<fecha>20/12/2013</fecha>
+</aeropuerto>
+
+
+
+
+
+
+

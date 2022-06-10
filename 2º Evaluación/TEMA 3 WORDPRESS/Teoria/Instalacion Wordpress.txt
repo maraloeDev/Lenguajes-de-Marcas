@@ -1,0 +1,69 @@
+Descargar wampserver64
+
+Descargar wordpress
+
+localhost/phpmyadmin
+
+crear base de datos -> miweb2022
+
+descomprimir wordpress
+
+mover a la carpeta wamp64->www cambiar nombre miweb2022
+
+localhost/miweb2022(nombre de la carpeta)
+
+USUARIO root
+
+Prefijo tabla web2022_
+
+wp-config.php super importante
+
+acceder administrador  a wordpress http://localhost/miweb2022/wp-login.php
+acceder cliente a wordpress http://localhost/miweb2022/
+
+software de administracion
+https://82.223.243.211:8443 
+root / b0wE2z*p#Y
+
+c:\windows\System32\drivers\etc\hosts
+webignaciocampano.com
+
+---------------------------------
+dam / dam
+---------------------------------
+/var/www/vhosts/webignaciocampano.com/httpdocs/wp-content/upgrade
+
+Crear blog en wordpress
+
+Entradas> añadir nueva >categoría > crear nueva categoría  > “ blog” >
+Apariencia > menús > nombre de menú “MiMenu” > marcar menú principal > categorías marcar la de blog
+
+Ajustes > lectura pagina estatica sample page
+Paginas> ver todas las paginas > sample page
+
+Hacer un backup
+ - entrar ftp /var/www/vhosts/webignaciocampano.com/httpdocs (descargamos todo)
+ - acceder http://localhost/phpmyadmin/ > datebase > phpmyadmin > exportar > continuar > y ya lo tendriamos
+
+Imporat base de datos
+ http://localhost/phpmyadmin/ > datebase > phpmyadmin > creamos una bd nueva > la seleccionamos > importar > seleccionamos la base datos > continuar 
+(en la carpera users se encuentra el nombres de usuario y la contraseña, si le damos a editar el registro, user_pass funcion MD5, y ya cambias la contraseña)
+nos dirigimos > C:\wamp64\www\miweb2022 > wp-config.php hacemos una copia > wp-config-server.php > en la original cambiamos cambiamos el nombre de la base de datos:
+
+( 'DB_NAME', 'bd_ignacio' );
+
+/** MySQL database username */
+define( 'DB_USER', 'root' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', '' );
+
+ahora llevamos la carpeta a C:\wamp64\www
+
+
+
+
+
+
+
+
