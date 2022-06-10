@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var coordX1 = prompt("Introduce la coordenada x del primer vector: ");
+            var coordY1 = prompt("Introduce la coordenada y del primer vector: ");
+            punto1 = new punto(coordX1, coordY1);
+
+            var coordX2 = prompt("Introduce la coordenada x del segundo vector: ");
+            var coordY2 = prompt("Introduce la coordenada y del segundo vector: ");
+            punto2 = new punto(coordX2, coordY2);
+
+            var coordX3 = prompt("Introduce la coordenada x del tercer vector: ");
+            var coordY3 = prompt("Introduce la coordenada y del tercer vector: ");
+            punto3 = new punto(coordX3, coordY3);
+
+            var arrayPuntos = [punto1, punto2, punto3];
+            var sumaX = 0;
+            var sumaY = 0;
+            
+            for (i=0; i<arrayPuntos.length; i++){
+                alert("Punto" + (i+1) + ": (" + arrayPuntos[i].coordX + "," + arrayPuntos[i].coordY + ")")
+            }
+            
+            for (i=0; i<arrayPuntos.length; i++){
+                sumaX = sumaX + parseInt(arrayPuntos[i].coordX);
+            }
+            
+            for (i=0; i<arrayPuntos.length; i++){
+                sumaY = sumaY + parseInt(arrayPuntos[i].coordY);
+            }
+
+            alert("La suma de las X es : " + sumaX);
+            alert("La suma de las Y es : " + sumaY);
+            alert("La suma de los puntos es : " + sumaX + "," + sumaY);
+        }
+
+        function punto(coordX, coordY) {
+            this.coordX = coordX;
+            this.coordY = coordY;
+        }
+
+    </script>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

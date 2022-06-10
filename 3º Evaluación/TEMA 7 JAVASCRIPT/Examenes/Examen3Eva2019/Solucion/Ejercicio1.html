@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+    <script type="text/javascript">
+        function generarTabla() {
+            numFilas = document.getElementById("numFilas").value;
+            numColumnas = document.getElementById("numColumnas").value;
+            tabla="";
+            for (i=0;i<numFilas;i++) {
+                tabla+="<tr>";
+                for (j=0;j<numColumnas;j++){
+                    tabla+="<td>" + i + j + "</td>";
+                }
+                tabla=tabla+"</tr>";
+            }
+            document.getElementById("tabla").innerHTML=tabla;
+        }
+    </script>
+</head>
+<body>
+    Introduce el número de filas: <input type="text" id="numFilas"><br/>
+    Introduce el número de columnas: <input type="text" id="numColumnas"><br/>
+    <input type="button" value="Generar Tabla" onclick="generarTabla()"><br/>
+    <table id="tabla" border="1"></table>
+</body>
+</html>

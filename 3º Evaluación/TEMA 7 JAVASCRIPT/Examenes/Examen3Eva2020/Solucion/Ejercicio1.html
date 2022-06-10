@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+    <script>
+        function generarTabla() {
+            var numFilas = document.getElementById("numFilas").value;
+            var numMultip = document.getElementById("numMultip").value;
+            var tabla = "<table border='1'>";
+            for (i = 1; i <= numFilas; i++) {
+                tabla += "<tr>";
+                tabla += "<td><input type='text' value='Valor: " + i + "' onfocus='colorear(this,\"yellow\")' onblur='colorear(this,\"white\")'></td>";
+                tabla += "<td><input type='text' value='Valor: " + numMultip + "' onfocus='colorear(this,\"yellow\")' onblur='colorear(this,\"white\")'></td>";
+                tabla += "<td><input type='text' value='Valor: " + (i * numMultip) + "'  onfocus='colorear(this,\"yellow\")' onblur='colorear(this,\"white\")'></td>";
+                tabla += "</tr>";
+            }
+            tabla += "</table>";
+            document.getElementById("idTabla").innerHTML = tabla;
+        }
+        function colorear(objeto,color) {
+            objeto.style.backgroundColor = color;
+        }
+    </script>
+</head>
+<body>
+    Número a multiplicar: <input type="text" id="numMultip"><br><br>
+    Número de filas: <input type="text" id="numFilas"><br><br>
+    <input type="button" value="Generar tabla" onclick="generarTabla()">
+    <p id="idTabla"></p>
+</body>
+</html>

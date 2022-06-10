@@ -1,0 +1,168 @@
+EJERCICIO 6. MODIFICACIONRES, INSERCIONES, ACTUALIZACIONES EN XQUERY.
+
+1 - Añade un empleado al departamento que ocupa la posición 2. Los datos son el salario 2340, el puesto Técnico, y nombre Pedro Fraile.
+
+
+for $depart in //DEP_ROW[2]/DEPT_NO
+return
+update insert
+<EMP_ROW>
+<SALARIO>2340</SALARIO>
+<OFICIO>TECNICO</OFICIO>
+<APELLIDO>PEDRO FRAILE</APELLIDO>
+<DEPT_NO>{data($depart)}</DEPT_NO></EMP_ROW>
+into /EMPLEADOS
+
+2 - El empleado 7902 ha causado baja en la empresa, sustitúyelo por el siguiente:
+<EMP_ROW>
+<EMP_NO>8043</EMP_NO>
+<APELLIDO>González</APELLIDO>
+<OFICIO>Programador</OFICIO>
+<DIR>7566</DIR>
+<FECHA_ALT>2013-05-23</FECHA_ALT>
+<SALARIO>2800</SALARIO>
+<DEPT_NO>60</DEPT_NO>
+</EMP_ROW>
+
+update replace /EMPLEADOS/EMP_ROW[EMP_NO=7902] with
+<EMP_ROW>
+<EMP_NO>8043</EMP_NO>
+<APELLIDO>González</APELLIDO>
+<OFICIO>Programador</OFICIO>
+<DIR>7566</DIR>
+<FECHA_ALT>2013-05-23</FECHA_ALT>
+<SALARIO>2800</SALARIO>
+<DEPT_NO>60</DEPT_NO>
+</EMP_ROW>
+
+
+3- Añade el departamento 60 , que es de informática y está en Valladolid
+
+update insert
+<DEP_ROW>
+<DEPT_NO>60</DEPT_NO>
+<DNOMBRE>INFORMATICA</DNOMBRE>
+<LOC>VALLADOLID</LOC>
+</DEP_ROW>
+into /departamentos
+
+4 - Actualiza el salario de los empleados del departamento con código de departamento 20. Suma al salario 100.
+
+
+for $empl in /EMPLEADOS/EMP_ROW[DEPT_NO=20]
+let $salario:=$empl/SALARIO
+return update value $salario with data($salario)+100
+
+5- Renombra el nodo DEP_ROW del documento departamentos.xml por filadepar.
+
+update rename /departamentos/DEP_ROW as 'filadepar'
+
+6- Borra todos los empleados que trabajen en Valladolid.
+
+for $dept in /departamentos/filadepar[LOC='VALLADOLID']
+for $empl in /EMPLEADOS/EMP_ROW[DEPT_NO=$dept/DEPT_NO]
+return update delete $empl
+
+7- Añade en departamentos un nuevo campo que muestre la media del salario de sus empleados en su departamento.
+
+for $dep in distinct-values(/departamentos/DEP_ROW/DEPT_NO)
+let $media:=avg(/EMPLEADOS/EMP_ROW[DEPT_NO=$dep]/SALARIO)
+return update insert <media>{$media}</media> into /departamentos/DEP_ROW[DEPT_NO=$dep]
+
+EJERCICIO 7. MODIFICACIONRES, INSERCIONES, ACTUALIZACIONES EN XQUERY.
+
+1- Incrementa el salario a todos los empleados del departamento de INVESTIGACIÓN un 10% la media de sus salarios.
+
+for $dept in //filadepar[DNOMBRE='INVESTIGACION']
+let $emple:= //EMP_ROW[DEPT_NO=$dept/DEPT_NO]
+let $mediaSal:=round(avg($emple/SALARIO))
+for $emp in $emple
+return update value $emp/SALARIO with $emp/SALARIO+0.1*$mediaSal
+
+
+2- Queremos cambiar la etiqueta OFICIO por puesto
+
+update rename //fila_emple/OFICIO as 'puesto'
+
+3- Añadir a departamento una nueva etiqueta con el número de empleados que tiene cada departamento. <NUMEMPLE>x</NUMEMPLE>
+
+for $dep in /departamentos/DEP_ROW/DEPT_NO
+let $numEmpl:=count(/EMPLEADOS/EMP_ROW[DEPT_NO=$dep])
+return update insert
+	<NUMEMPL>{$numEmpl}</NUMEMPL>
+into /$dep/..
+
+4- Borrar al empleado que más cobra de cada departamento.
+
+for $dep in /departamentos/DEP_ROW/DEPT_NO
+for $maxSal in max(/EMPLEADOS/EMP_ROW[DEPT_NO=$dep]/SALARIO)
+return update delete /EMPLEADOS/EMP_ROW[SALARIO=$maxSal and DEPT_NO=$dep]
+
+5- Modificar la denominación de VENDEDOR por COMERCIAL.
+
+update value /EMPLEADOS/EMP_ROW[OFICIO='VENDEDOR']/OFICIO
+with 'COMERCIAL'
+
+EJERCICIO 8. DEPARTAMENTOS.XML Y EMPLEADOS.XML RESUMEN FINAL
+
+1- Por recortes en la empresa y tras una serie de despidos queremos eliminar de empleados.xml, todos aquellos empleados que cobran por encima de la media de su departamento.
+
+for $dep in distinct-values(//EMPLEADOS/EMP_ROW/DEPT_NO)
+let $avg_sal:= avg(//EMPLEADOS/EMP_ROW[DEPT_NO=$dep]/SALARIO)
+return update delete //EMPLEADOS/EMP_ROW[DEPT_NO=$dep and SALARIO>data($avg_sal)]
+
+2- Elimina la etiqueta EMP_NO, convirtiéndola a atributo de la etiqueta EMP_ROW.
+
+for $oficio in //EMP_ROW/OFICIO
+return update rename $oficio as 'PUESTO'
+
+3- Queremos listar en una tabla HTML el número de empleado, nombre de su departamento, y lo que cobra (teniendo en cuenta el total de SALARIO+COMISION.
+
+for $dep in /departamentos/DEP_ROW
+let $numEmp:=count(//EMP_ROW[DEPT_NO=$dep/DEPT_NO])
+return update insert
+<NUMEMPLE>{$numEmp}</NUMEMPLE>
+into $dep
+
+4- Incrementa el salario de los empleados que no son vendedores de Bilbao o Barcelona
+
+<HTML>
+<BODY>
+<TABLE>
+{
+for $emples in //EMP_ROW
+let $dept_no:=//DEP_ROW[DEPT_NO=$emples/DEPT_NO]
+let $num:=count(//EMP_ROW[DEPT_NO=$dept_no/DEPT_NO])
+let $nombre:=$dept_no/DNOMBRE
+let $cobra:=(number(//EMP_ROW[EMP_NO=$emples/EMP_NO]/SALARIO) + number(//EMP_ROW[EMP_NO=$emples/EMP_NO]/COMISION))
+return if (//EMP_ROW[EMP_NO=$emples/EMP_NO]/COMISION>0) then
+(<tr><td>{$num}</td><td>{data($nombre)}</td><td>{$cobra}</td></tr>)
+
+else 
+(<tr><td>{$num}</td><td>{data($nombre)}</td><td>{number(//EMP_ROW[EMP_NO=$emples/EMP_NO]/SALARIO)}</td></tr>)
+}
+</TABLE>
+</BODY>
+</HTML>
+5- Listado por cada oficio de las personas que más cobran
+
+for $den in //EMP_ROW[OFICIO="VENDEDOR"]/OFICIO
+return update value $den with "COMERCIAL"
+
+6- Cambiar la etiqueta SALARIO por SUELDO
+
+update rename //fila_emple/SALARIO as 'SUELDO'
+
+7- Aquellos que son de un departamento de Valladolid o Barcelona o Madrid se les incrementa el sueldo un 10% menos a los DIRECTOR
+
+for $dept in distinct-values(/departamentos/DEP_ROW[LOC = 'BARCELONA' or LOC = 'MADRID' or LOC = 'VALLADOLID']/DEPT_NO)
+for $emp in /EMPLEADOS/EMP_ROW[DEPT_NO = $dept and OFICIO != 'DIRECTOR']
+let $sal := round($emp/SALARIO * 1.1)
+return update value $emp/SALARIO with $sal
+
+8- Borrar aquellos que cobran menos del 50% del sueldo de su jefe (estando el número de empleado del jefe de cada empleado en el campo DIR).
+
+for $dir in /EMPLEADOS/EMP_ROW
+let $dirSal := $dir/SALARIO * 0.5, $numDir := $dir/EMP_NO
+for $emp in /EMPLEADOS/EMP_ROW[DIR = $numDir and SALARIO < $dirSal]
+return update delete $emp

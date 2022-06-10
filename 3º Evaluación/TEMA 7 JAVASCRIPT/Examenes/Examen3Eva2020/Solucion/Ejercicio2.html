@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2</title>
+    <script>
+        function coordenada(coordX, coordY) {
+            this.posicX = coordX;
+            this.posicY = coordY;
+
+            this.mostrar = function mostrarElem() {
+                return "(" + this.posicX + "," + this.posicY + ")";
+            }
+        }
+
+        function generarCoordenadas() {
+            coord = pedirDatos(1);
+            coord2 = pedirDatos(2);
+            coord3 = pedirDatos(3);
+
+            mostrarCoords();
+            sumaDatos();
+        }
+
+        function pedirDatos(contador) {
+            var coordX = document.getElementById("X" + contador).value;
+            var coordY = document.getElementById("Y" + contador).value;
+            coordTemp = new coordenada(parseInt(coordX), parseInt(coordY))
+            return coordTemp;
+        }
+
+        function mostrarCoords() {
+            var coords = "Punto1: " + coord.mostrar() + "<br>Punto2: " + coord2.mostrar() + "<br>Punto3: " + coord3.mostrar();
+
+            document.getElementById("textoPuntos").innerHTML = coords;
+        }
+
+        function sumaDatos() {
+            sumaX = coord.posicX + coord2.posicX + coord3.posicX;
+            sumaY = coord.posicY + coord2.posicY + coord3.posicY;
+
+            document.getElementById("textoSuma").innerHTML = "Suma X: " + sumaX;
+            document.getElementById("textoResta").innerHTML = "Suma Y: " + sumaY;
+        }
+
+    </script>
+</head>
+
+<body>
+    X: <input type="text" id="X1"> Y: <input type="text" id="Y1"><br><br>
+    X: <input type="text" id="X2"> Y: <input type="text" id="Y2"><br><br>
+    X: <input type="text" id="X3"> Y: <input type="text" id="Y3"><br><br><br>
+    <input type="button" value="Generar puntos" onclick="generarCoordenadas()">
+    <p id="textoPuntos"></p>
+    <p id="textoSuma"></p>
+    <p id="textoResta"></p>
+</body>
+
+</html>

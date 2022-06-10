@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Ejercicio 2</title>
+    <script type="text/javascript">
+        participantes = new Array();
+        function Participante(nombre, telefono, correo, edad, poblacion) {
+            this.nombre = nombre;
+            this.telefono = telefono;
+            this.correo = correo;
+            this.edad = edad;
+            this.poblacion = poblacion;
+
+            this.mostrar = function mostrarParticipante() {
+                cadena = "Nombre: " + this.nombre + "<br/>"
+                    + "Telefono: " + this.telefono + "<br/>"
+                    + "Correo: " + this.correo + "<br/>"
+                    + "Edad: " + this.edad + "<br/>>"
+                    + "Población: " + this.poblacion + "<br/>";
+                return cadena;
+            }
+        }
+        function guardarDatos() {
+            nombre = document.getElementById("nombre").value;
+            telefono = document.getElementById("telefono").value;
+            correo = document.getElementById("correo").value;
+            edad = document.getElementById("edad").value;
+            poblacion = document.getElementById("poblacion").value;
+            if (edad >= 18) {
+                p = new Participante(nombre, telefono, correo, edad, poblacion);
+                participantes.push(p);
+            } else {
+                alert("El participante debe ser mayor de edad");
+            }
+            document.getElementById("nombre").value = "";
+            document.getElementById("telefono").value = "";
+            document.getElementById("correo").value = "";
+            document.getElementById("edad").value = "";
+            document.getElementById("poblacion").value = "";
+        }
+        function mostrarDatos() {
+            datos = "";
+            for (i = 0; i < participantes.length; i++) {
+                datos += "Participante " + (parseInt(i) + 1) + ":<br/>";
+                datos += participantes[i].mostrar() + "<br/>";
+            }
+            document.getElementById("parrafo").innerHTML = datos;
+        }
+    </script>
+</head>
+
+<body>
+    <form action="">
+        Nombre: <input type="text" id="nombre"><br/>
+        Telefono: <input type="text" id="telefono"><br/>
+        Correo: <input type="text" id="correo"><br/>
+        Edad: <input type="text" id="edad"><br/>
+        Población: <input type="text" id="poblacion"><br/>
+        <input type="button" value="Incribir" onclick="guardarDatos()">
+        <input type="button" value="Listar" onclick="mostrarDatos()">
+    </form>
+    <p id="parrafo"></p>
+</body>
+
+</html>

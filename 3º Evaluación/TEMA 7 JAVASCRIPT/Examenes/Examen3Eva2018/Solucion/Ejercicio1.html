@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+
+    function Cambiar(x){
+        id=x.id;
+        document.getElementById(id);
+        console.log("---"+id+"---")
+        if (id=="1.1"){
+            p=document.getElementById('1');
+            if (x.textContent=='Ocultar contenido'){
+                x.textContent='Mostrar contenido';
+                p.style.display='none'
+            } else{
+                x.textContent='Ocultar contenido';
+                p.style.display='block'
+            }
+        }else if (id=="1.2"){
+            p=document.getElementById('2');
+            if (x.textContent=='Ocultar contenido'){
+                x.textContent='Mostrar contenido';
+                p.style.display='none'
+            } else {
+                x.textContent='Ocultar contenido';
+                p.style.display='block'
+            }
+        }else if (id=="1.3"){
+            p=document.getElementById('3');
+            if (x.textContent=='Ocultar contenido'){
+                x.textContent='Mostrar contenido';
+                p.style.display='none'
+            } else{
+                x.textContent='Ocultar contenido'
+                p.style.display='block'
+            }
+        }
+    }
+
+
+    </script>
+</head>
+<body>
+
+
+
+    <p id='1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ipsa quo architecto dolorem, deleniti non tempore similique mollitia voluptates natus sapiente obcaecati dignissimos tempora a possimus dolor molestias vero, enim officiis consequatur. Numquam fugit nemo aperiam sed libero hic maxime illum, maiores minima dolores dignissimos qui culpa esse, recusandae, sequi praesentium! Modi veniam odit ex cupiditate quia rerum neque vero et omnis nemo quaerat blanditiis dicta reiciendis, quae eveniet vel aspernatur quos dolore consectetur asperiores tempore, suscipit eaque nesciunt nobis? Provident, doloribus impedit. Inventore eius vel qui, reiciendis hic error ratione illum aperiam, voluptas, doloremque fugit mollitia molestias harum labore?</p>
+    <u><a id='1.1' onclick="Cambiar(this)" style="color: blue;">Ocultar contenido</a></u>
+    <p id='2'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis quidem asperiores at fugiat quia deserunt reprehenderit cum velit, vitae corrupti optio minus ipsum? Laboriosam atque beatae dolor reiciendis animi labore itaque illo fugit ut sequi harum iusto reprehenderit repellendus dolorum libero aperiam velit accusantium voluptates, minus voluptate mollitia enim necessitatibus ipsam dolore? Asperiores, minus. Doloremque eveniet quasi aperiam, accusantium, laudantium commodi quo officia vero aspernatur, deserunt pariatur eos nobis sit sapiente? Atque voluptates fugit, possimus eligendi error nesciunt tenetur quo, quae, qui odit eveniet mollitia saepe at odio. Nam cupiditate illum fuga quibusdam optio consectetur odio itaque exercitationem eum est.</p>
+    <u><a id='1.2' onclick="Cambiar(this)" style="color: blue;">Ocultar contenido</a></u>
+    <p id='3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, iste dolores eligendi impedit illum amet dolor recusandae maxime corrupti praesentium dolorum et tempore laboriosam sapiente ipsa sed a rem facere omnis ex sunt necessitatibus deleniti non eveniet. Assumenda veniam vel nulla odit perspiciatis accusamus non blanditiis illo voluptatem similique aliquid, tempore ullam minima ipsam nostrum animi? Iure sunt in saepe. Nobis odio excepturi, sequi sed optio cumque cupiditate culpa temporibus necessitatibus, repellat rem modi? Odio ut eius odit facilis repellendus quisquam maiores. Placeat debitis similique voluptatibus nulla laborum, ab totam quae excepturi sit, beatae earum sequi odio rem, voluptates quam.</p>
+    <u><a id='1.3' onclick="Cambiar(this)" style="color: blue;">Ocultar contenido</a></u>
+</body>
+</html>

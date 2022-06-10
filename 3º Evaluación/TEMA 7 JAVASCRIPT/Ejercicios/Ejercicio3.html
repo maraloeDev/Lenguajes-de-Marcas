@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3</title>
+    <script>
+        function alinear(value) {
+            //Opción 1
+           // var div = document.getElementById("parr");
+            //div.style.textAlign = value;
+            //Opción 2
+            parrafos=document.getElementsByTagName("p")
+            for(i=0;i<parrafos.length;i++)
+                parrafos[i].style.textAlign=value;
+            
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="parr">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero totam a quaerat temporibus quibusdam voluptates laboriosam harum enim quos, veritatis. Ex eaque quibusdam numquam aperiam id laboriosam amet sunt ipsam.</p>
+        <p>Illo suscipit explicabo unde sapiente quae distinctio perferendis sequi qui similique officia. Ad ex dolor odit iusto dignissimos consequatur perferendis dicta asperiores voluptatibus exercitationem tempora vero eius reiciendis, sequi, soluta!</p>
+        <p>Repellat eum officiis, asperiores deserunt. Aperiam modi in amet rem tempora reiciendis sit ratione rerum omnis. Blanditiis dolorem error adipisci, magnam quae inventore ratione nobis, commodi nihil voluptates fuga vero.</p>
+    </div>
+
+    <br><br><br>
+    Elige una opción:<br>
+    <input type="radio" name="selec" value="left" onclick="alinear(this.value)">Alinear a la izquierda<br>
+    <input type="radio" name="selec" value="center" onclick="alinear(this.value)">Alinear al centro<br>
+    <input type="radio" name="selec" value="right" onclick="alinear(value)">Alinear a la derecha<br>
+    <input type="radio" name="selec" value="justify" onclick="alinear(value)">Justificar
+</body>
+
+</html>

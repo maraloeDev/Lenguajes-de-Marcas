@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        function ocultar(enlace,parrafo)
+        {
+            if (enlace.value==true)
+            {
+                document.getElementById(parrafo).style.display = 'none'
+                enlace.textContent="Mostrar contenido"
+                enlace.value=false
+            } else
+            {
+                document.getElementById(parrafo).style.display = 'block'
+                this.textContent="Ocultar contenido"
+                enlace.value=true
+            }
+        }
+        
+    </script>
+</head>
+<body>
+   
+    <p id="uno">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, nulla nisi rerum? Adipisci ipsum quod minus voluptatem neque, totam quaerat distinctio dolorum quam optio amet reiciendis maiores eaque, rerum corporis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, nulla nisi rerum? Adipisci ipsum quod minus voluptatem neque, totam quaerat distinctio dolorum quam optio amet reiciendis maiores eaque, rerum corporis.</p><br>
+    
+    <a href="#" id="unomod" onclick="ocultar(this,'uno')" value="true">Ocultar contenido</a><br>
+    
+    <p id="dos" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio fugit minima quos quo dolorem nostrum reprehenderit ex quisquam perspiciatis ratione, non. Aspernatur debitis, dolor amet sint cum fugiat, velit provident.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, nulla nisi rerum? Adipisci ipsum quod minus voluptatem neque, totam quaerat distinctio dolorum quam optio amet reiciendis maiores eaque, rerum corporis.</p><br>
+    
+    <a href="#" id="dosmod" onclick="ocultar(this,'dos')" value="true">Ocultar contenido</a><br>
+    
+    <p id="tres" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio fugit minima quos quo dolorem nostrum reprehenderit ex quisquam perspiciatis ratione, non. Aspernatur debitis, dolor amet sint cum fugiat, velit provident.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, nulla nisi rerum? Adipisci ipsum quod minus voluptatem neque, totam quaerat distinctio dolorum quam optio amet reiciendis maiores eaque, rerum corporis.</p><br>
+    
+    <a href="#" id="tresmod" onclick="ocultar(this,'tres')" value="true">Ocultar contenido</a><br>
+    
+</body>
+</html>

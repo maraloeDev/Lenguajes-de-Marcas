@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2 - Examen JS Alberto Pérez Castañeda</title>
+    <script type="text/javascript">
+        function almacenarValores() {
+            arrayValores = [];
+            
+            arrayValores.push(document.getElementById("valor1").value);
+            arrayValores.push(document.getElementById("valor2").value);
+            arrayValores.push(document.getElementById("valor3").value);
+            arrayValores.push(document.getElementById("valor4").value);
+
+            generarTexto();
+        }
+
+        function generarTexto() {
+            valorX = 0;
+            valorY = 0;
+            valorZ = 0;
+            
+            for (i = 0; i < arrayValores.length; i++) {
+                valorX += parseInt(arrayValores[i]);
+                if (parseInt(arrayValores[i]) > 36) {
+                    valorY += parseInt(arrayValores[i]);
+                }
+                if (parseInt(arrayValores[i]) > 50) {
+                    valorZ += 1;
+                }
+            }
+            
+            textoVariables = "Valor X: " + valorX + "<br>Valor Y: " + valorY + "<br>Valor Z: " + valorZ;
+            document.getElementById("textoP").innerHTML = textoVariables;
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="text" id="valor1" placeholder="Datos del primer valor"><br><br>
+    <input type="text" id="valor2" placeholder="Datos del segundo valor"><br><br>
+    <input type="text" id="valor3" placeholder="Datos del tercer valor"><br><br>
+    <input type="text" id="valor4" placeholder="Datos del cuarto valor"><br><br>
+
+    <input type="button" value="Almacenar" onclick="almacenarValores()"><br><br>
+
+    <p id="textoP"></p>
+</body>
+
+</html>
