@@ -1,0 +1,25 @@
+Ejercicio 1
+<?xml version="1.0" encoding="UTF-8" ?>
+<coleccion>
+	<libro1>
+		<titulo>Manolito gafotas</titulo>
+		<autores>Elvira Lindo</autores>
+		<editorial>Alfaguara</editorial>
+		<fechadepublicacion>2/03/1995</fechadepublicacion>
+		<ISBN>es-2376rt343498</ISBN>
+         </libro1>
+          <libro2>
+		<titulo> mi vecino totoro</titulo>
+		<autores>Hayao Miyazaki</autores>
+		<editorial>EstudioGibli </editorial>
+		<fechadepublicacion></fechadepublicacion>
+		<ISBN></ISBN>
+         </libro2>
+          <libro3>
+		<titulo></titulo>
+		<autores></autores>
+		<editorial></editorial>
+		<fechadepublicacion></fechadepublicacion>
+		<ISBN></ISBN>
+          </libro3>
+</coleccion>

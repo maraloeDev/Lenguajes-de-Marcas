@@ -1,0 +1,16 @@
+div>div:first-of-type{
+    float: left;
+    border:  thick groove grey ;
+    width: 42%;
+    margin: 20px;
+}
+div>div:last-of-type{
+
+    float: right;
+    border:  thick groove grey;
+    width: 42%;
+    margin : 20px
+}
+#columnas{
+    display: inline-block;
+}

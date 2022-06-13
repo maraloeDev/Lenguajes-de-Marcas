@@ -1,0 +1,66 @@
+body{
+    background-color: red;
+}
+#primero{
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: blue;
+    height: 200px;
+    width: 150px;
+    z-index: 2;
+}
+#segundo{
+    position: absolute;
+    top: 8px;
+    left: 250px;
+    background-color: blue;
+    height: 200px;
+    width: 150px;
+    z-index: 4;
+}
+#tercero{
+    position: absolute;
+    top: 8px;
+    left: 495px;
+    background-color: blue;
+    height: 200px;
+    width: 150px;
+    z-index: 6;
+}
+#cuarto{
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: yellow;
+    height: 250px;
+    width: 150px;
+    z-index: 1;
+}
+#quinto{
+    position: absolute;
+    top: 8px;
+    left: 250px;
+    background-color: yellow;
+    height: 250px;
+    width: 150px;
+    z-index: 3;
+}
+#sexto{
+    position: absolute;
+    top: 8px;
+    left: 495px;
+    background-color: yellow;
+    height: 250px;
+    width: 150px;
+    z-index: 5;
+}
+#septimo{
+    position: absolute;
+    top: 340px;
+    left: 8px;
+    background-color: green;
+    height:  70px;
+    width: 640px;
+    z-index: 7;
+}

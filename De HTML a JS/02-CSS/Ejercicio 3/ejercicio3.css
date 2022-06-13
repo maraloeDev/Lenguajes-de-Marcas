@@ -1,0 +1,43 @@
+body {
+    background-color: cornflowerblue;
+}
+h1{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    background-color: white;
+}
+.rojo{
+    color: red;
+    text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
+}
+h2{
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color: aqua;
+}
+.amarillo{
+    color: yellow;
+}
+
+
+/*
+p:nth-of-type(2n){
+    background-color: cornflowerblue;
+    white-space: nowrap;
+}
+p:nth-of-type(2n+1){
+    background-color: lightblue;
+    */
+
+
+.titulo2{
+    color: whitesmoke;
+    font-size: 12px;
+}
+.titulo3{
+    color: whitesmoke;
+    font-size: 10px;
+}

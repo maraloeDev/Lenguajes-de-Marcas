@@ -1,0 +1,16 @@
+.cuerpo{
+    font-family: sans-serif;
+    background-color: #FAFAFA H1 ;
+}
+.titulo{
+    background-color:  #EAEAEA;
+    font-size: 125%;
+    text-align: center;
+}
+.campos{
+    border:  #EEEEEE 10px 20px;
+}
+#relleno ::after {
+    content: "\a";
+    white-space: pre;
+}

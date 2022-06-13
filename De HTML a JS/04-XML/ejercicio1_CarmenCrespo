@@ -1,0 +1,43 @@
+<libreria>
+	<libro>
+		<autores>
+			<autor>María Pascual</autor>
+		</autores>
+		<titulo>"Cocina mediterránea"</titulo>
+		<editorial>Edelvives</editorial>
+		<fecha de publicacion>
+			<dia>23</dia>
+			<mes>octubre</mes>
+			<año>2018</año>
+		</fecha de publicacion>
+		<isbn>123456456</isbn>
+	</libro>
+
+	<libro>
+		<autores>
+			<autor>María Pascual</autor>
+		</autores>
+		<titulo>La Enciclopedia de las Plantas</titulo>
+		<editorial>SM</editorial>
+		<fecha de publicacion>
+			<dia>10</dia>
+			<mes>junio</mes>
+			<año>2010</año>
+		</fecha de publicacion>
+		<isbn>415771497</isbn>
+	</libro>
+
+	<libro>
+		<autores>
+			<autor>Pedro Martín</autor>
+		</autores>
+		<titulo>50 días en Marte</titulo>
+		<editorial>Santillana</editorial>
+		<fecha de publicacion>
+			<dia>26</dia>
+			<mes>marzo</mes>
+			<año>2020</año>
+		</fecha de publicacion>
+		<isbn>156749814</isbn>
+	</libro>
+</libreria>

@@ -1,0 +1,64 @@
+<sucursales>
+	<sucursal telefono="xxxxxxxx" codigo="xxxx">
+		<director>xxxxxxxxxxxxxxxx</director>
+		<poblacion>xxxxxxxxxxx</poblacion>
+		<cuenta tipo="xxxxxxxxx">
+			<nombre>xxxx</nombre>
+			<numero>xxxx</ numero>
+			<saldohaber>xxxxxx</saldohaber>
+			<saldodebe>xxxxx</saldodebe>
+		</cuenta>
+	</sucursal>
+</sucursales>
+
+Realiza las siguientes consultas XPath:
+1. Obtén los datos de las cuentas bancarias cuyo tipo sea AHORRO.
+//cuenta[@tipo="AHORRO"]
+2. Obtén por cada sucursal la concatenación de su código y el número de cuentas del tipo 
+AHORRO que tiene.
+//sucursal/concat(@codigo, " - ",count(cuenta[@tipo="AHORRO"]))
+3. Obtén las cuentas de tipo PENSIONES de la sucursal con código SUC3 .
+//sucursal[@codigo="SUC3"]/cuenta[@tipo="PENSIONES"]
+4. Obtén por cada sucursal la concatenación de los datos, código sucursal, director y total 
+saldo haber.
+//sucursal/concat(@codigo," - ",director," - ",sum(cuenta/saldohaber),"€")
+5. Obtén todos los elementos de las sucursales con más de 3 cuentas.
+//sucursal[count(cuenta) > 3]
+6. Obtén todos los elementos de las sucursales con más de 3 cuentas del tipo AHORRO.
+//sucursal[count(cuenta[@tipo="AHORRO"]) > 3 ]
+7. Obtén los nodos del director y la población de las sucursales con más de 3 cuentas.
+(: //sucursal[count(cuenta) > 3 ]/director
+|
+//sucursal[count(cuenta) > 3 ]/poblacion :)
+
+//sucursal[count(cuenta) > 3 ]/concat(director," - ",poblacion)
+
+
+8. Obtén el número de sucursales cuya población sea Madrid.
+sum(//sucursal[/poblacion="MADRID"])
+9. Obtén por cada sucursal, su código y la suma de las aportaciones de las cuentas del tipo 
+PENSIONES.
+/sucursalconcat(@codigo,sum(cuenta/aportacion))
+10. Obtén los nodos número de cuenta, nombre de cuenta y el saldo haber de las cuentas con 
+saldo haber mayor de 10000
+//cuenta[saldohaber>10000]/(nombre,numero,saldohaber)
+11. Obtén por cada sucursal con más de 3 cuentas del tipo AHORRO, su código y la suma del 
+saldo debe de esas cuentas.
+//sucursal[count(cuenta (@tipo="AHORRO") > 3]/(codigo,sum(saldodeber)
+
+
+
+
+----------------------------------------
+9. //sucursal/concat(@codigo, ' ',sum(cuenta[@tipo='PENSIONES']/aportacion))
+En éste caso no aparece la sucursal 2, por tanto es mejor solución la primera consulta: -> //sucursal[cuenta[contains(@tipo,'PENSIONES')]]/concat('codigo:',@codigo,', aportaciones: ',sum(cuenta/aportacion))
+//sucursal/concat(@codigo, ' ',sum(cuenta/aportacion)) Como PENSIONES son las únicas que tienen aportaciones podemos obviar el  @tipo
+10.
+//sucursal/*[saldohaber>10000]
+//sucursal/cuenta[saldohaber>10000]
+//sucursal/cuenta[saldohaber>10000]/concat(nombre , ' ',numero,' ',saldohaber)
+11 //sucursal[count(cuenta[@tipo= 'AHORRO'])>3]/concat(@codigo, ' ', sum(cuenta[@tipo= 'AHORRO']/saldodebe))
+
+
+
+

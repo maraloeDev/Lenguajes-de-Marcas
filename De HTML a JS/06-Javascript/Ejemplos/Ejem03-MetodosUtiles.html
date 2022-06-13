@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('link1').textContent = "Texto hipervínculo cambiado"
+        }
+        function multiplicar() {
+            document.getElementById('casillaResultado').value =
+                document.getElementById('casilla1').value *
+                document.getElementById('casilla2').value
+            document.getElementById('casillaResultado').style.background = 'red'
+            document.getElementById('casillaResultado').style.color = 'yellow'
+            document.getElementById('imagen').src = 'https://gregoriofer.com/wp-content/uploads/2018/06/logoGF-colorNuevo.png'
+
+        }
+        function cogerPorEtiquetas() {
+            parrafos = document.getElementsByTagName("p")
+            for (i = 0; i < parrafos.length; i++) {
+                parrafos[i].innerHTML = "<h1>" + i + "</h1>" + parrafos[i].textContent
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <a id="link1" href="https://gregoriofer.com">Ocultar contenidos</a><br>
+    <br />
+    <input type="text" id="casilla1">x<input type="text" id="casilla2">=
+    <input type="text" id="casillaResultado" readonly><br />
+    <input type="button" value="Multiplicar" onclick="multiplicar()"><br />
+    <img id="imagen" src="https://gregoriofer.com/logo.jpg" /><br />
+
+    <input type="button" value="Ejecutar" onclick="cogerPorEtiquetas()"><br />
+    (p>lorem)*5
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, eos fugiat nobis doloremque mollitia ipsa
+        quasi adipisci tempora quibusdam voluptate facilis, consequuntur facere tempore architecto, quia. Nostrum, quos,
+        doloribus. Ipsam.</p>
+    <p>Iusto in blanditiis laboriosam voluptas numquam, similique voluptates quibusdam quas nisi velit obcaecati harum
+        praesentium, hic at quam cupiditate provident nostrum mollitia culpa quia quasi? Dignissimos modi tenetur natus
+        ratione.</p>
+    <p>Similique quibusdam, reprehenderit laudantium saepe, nemo nobis suscipit quia sint excepturi, totam aspernatur
+        accusantium atque. Id fugit nemo repellendus voluptas facilis! Quos totam voluptatum soluta, nemo laborum,
+        maiores non impedit.</p>
+    <p>A nesciunt unde sunt distinctio repudiandae, vel soluta sed fugiat veritatis aliquam harum temporibus laudantium
+        natus necessitatibus vitae voluptate! Voluptatem architecto eius obcaecati id quisquam repellendus laboriosam
+        illo modi incidunt.</p>
+    <p>Cumque praesentium natus maiores, consequuntur asperiores blanditiis minima. Commodi consectetur facilis cum enim
+        blanditiis. Expedita, dolorum, doloremque. Quidem eius incidunt laboriosam. Facilis ipsum voluptate incidunt
+        debitis repellendus, aperiam laborum suscipit.</p>
+
+
+</body>
+
+</html>

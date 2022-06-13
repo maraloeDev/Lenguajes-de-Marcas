@@ -1,0 +1,103 @@
+7.
+1)
+for $dep in /EMPLEADOS/EMP_ROW[DEPT_NO=/departamentos/DEP_ROW[DNOMBRE="INVESTIGACION"]/DEPT_NO]/SALARIO
+let $media:= avg($dep)
+let $nuevosal:=$dep+$media*0.1
+return update value $dep with $nuevosal
+2)
+for $oficio in //EMP_ROW/OFICIO
+return update rename $oficio as 'PUESTO'
+3)
+for $dep in /departamentos/DEP_ROW
+let $numEmp:=count(//EMP_ROW[DEPT_NO=$dep/DEPT_NO])
+return update insert
+<NUMEMPLE>{$numEmp}</NUMEMPLE>
+into $dep
+4)
+for $dep in //DEP_ROW/DEPT_NO
+let $max:= max(//EMP_ROW[DEPT_NO=$dep]/SALARIO)
+return update delete //EMP_ROW[SALARIO=$max AND DEPT_NO=$dep]
+5)
+for $den in //EMP_ROW[OFICIO="VENDEDOR"]/OFICIO
+return update value $den with "COMERCIAL"
+8.
+1)
+for $dep in //EMP_ROW/DEPT_NO
+let $media:=avg(//EMP_ROW[DEPT_NO=$dep]/SALARIO)
+return update delete //EMP_ROW[SALARIO>$media and DEPT_NO=$dep]
+2)
+for $emp in //EMP_ROW
+let $cod:=$emp/EMP_NO
+let $cadena:=concat('EMP_ROW EMP_NO="',$cod,'"')
+return (update rename //EMP_ROW[EMP_NO=$emp/EMP_NO] as $cadena , update delete $cod)
+
+
+for $emple in /EMPLEADOS/EMP_ROW
+return update insert attribute EMP_NO {$emple/EMP_NO} into $emple
+
+
+3)
+<HTML>
+<BODY>
+<TABLE>
+{
+for $emples in //EMP_ROW
+let $dept_no:=//DEP_ROW[DEPT_NO=$emples/DEPT_NO]
+let $num:=count(//EMP_ROW[DEPT_NO=$dept_no/DEPT_NO])
+let $nombre:=$dept_no/DNOMBRE
+let $cobra:=(number(//EMP_ROW[EMP_NO=$emples/EMP_NO]/SALARIO) + number(//EMP_ROW[EMP_NO=$emples/EMP_NO]/COMISION))
+return if (//EMP_ROW[EMP_NO=$emples/EMP_NO]/COMISION>0) then
+(<tr><td>{$num}</td><td>{data($nombre)}</td><td>{$cobra}</td></tr>)
+
+else 
+(<tr><td>{$num}</td><td>{data($nombre)}</td><td>{number(//EMP_ROW[EMP_NO=$emples/EMP_NO]/SALARIO)}</td></tr>)
+}
+</TABLE>
+</BODY>
+</HTML>
+
+4)
+for $emp in //EMP_ROW[DEPT_NO=/departamentos/DEP_ROW[DEPT_NO=/departamentos/DEP_ROW[LOC != "BARCELONA" and LOC != "BILBAO"]/DEPT_NO]
+return update value $emp/SALARIO with $emp/SALARIO+100
+
+
+for $depart in //DEP_ROW[LOC != 'BARCELONA' and LOC != 'BILBAO']/DEPT_NO
+for $emple in //EMP_ROW[DEPT_NO = $depart and OFICIO != 'VENDEDOR']
+let $sal:= $emple/SALARIO
+return update value $emple/SALARIO with $sal+150
+
+
+
+5)
+• Listado por cada oficio de las personas que más cobran
+for $oficios in distinct-values(/EMPLEADOS/EMP_ROW/OFICIO)
+for $emplemax in //EMP_ROW[SALARIO=max(//EMP_ROW[OFICIO=$oficios]/SALARIO)]
+return $emplemax
+
+
+
+6)
+for $sal in //EMP_ROW/SALARIO
+return update rename $sal as 'SUELDO'
+
+
+7)
+for $dept in distinct-values(/departamentos/DEP_ROW[LOC = 'BARCELONA' or LOC = 'MADRID' or LOC = 'VALLADOLID']/DEPT_NO)
+for $emp in /EMPLEADOS/EMP_ROW[DEPT_NO = $dept and OFICIO != 'DIRECTOR']
+let $sal := round($emp/SALARIO * 1.1)
+return update value $emp/SALARIO with $sal
+
+
+8)
+for $dir in /EMPLEADOS/EMP_ROW
+let $dirSal := $dir/SALARIO * 0.5, $numDir := $dir/EMP_NO
+for $emp in /EMPLEADOS/EMP_ROW[DIR = $numDir and SALARIO < $dirSal]
+return update delete $emp
+
+
+for $emp in //EMP_ROW
+let $dir:=$emp/DIR
+let $suelDirMitad:=//EMP_ROW[EMP_NO=$dir]/SALARIO*0.5
+return update delete $emp[SALARIO<$suelDirMitad]
+
+

@@ -1,0 +1,46 @@
+ul{
+    position: fixed;
+    top: 0px;
+    line-height: 40px;
+    width: 100%;
+    
+/*    display: block;*/
+    margin: 0px;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    
+    border-top: solid 10px white;
+    border-bottom: solid 10px white;
+    background-color: lightgray;
+    
+    /*z-index: 2;*/
+}
+ul>li{
+    margin: 0px;
+    width: 45%;
+    display: inline-block;
+}
+ul>li:first-of-type{
+    text-align: left;
+    padding-left: 20px;
+}
+ul>li:last-of-type{
+    text-align: right;
+    padding-right: 20px;
+}
+a{
+    display: block;
+    text-decoration: none;
+    color:black;
+}
+ul>li:hover{
+    background-color: yellow;
+}
+p:first-of-type{
+    margin-top: 70px;
+}
+
+p:nth-of-type(2n+1){
+    background-color: aqua;
+}

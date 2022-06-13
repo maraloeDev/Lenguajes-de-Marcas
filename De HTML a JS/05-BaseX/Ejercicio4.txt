@@ -1,0 +1,39 @@
+1)
+
+	(:Obtén los datos denominación, precio y nombre de zona de cada producto, ordenado por nombre de zona:)
+
+for $zonas_ord in //zona
+let $prod_zonas_ord:=//produc[cod_zona=$zonas_ord/cod_zona]
+order by $zonas_ord/nombre
+return <zona> {$zonas_ord/nombre, $prod_zonas_ord } </zona>
+
+mejor:
+
+for $prod in //produc
+let $zona := //zona[cod_zona=$prod/cod_zona]
+order by $zona/nombre
+return <producto>{
+  $prod/denominacion,
+  $prod/precio,
+  <zona>{data($zona/nombre)}</zona>
+}</producto>
+
+
+
+2)
+
+	(:Obtén por cada zona, el nombre de zona y el número de productos que tiene:)
+
+for $zona in /zonas/zona/cod_zona
+let $nom_zona:=/zonas/zona[cod_zona=$zona]/nombre,
+$total:=count(/productos/produc[cod_zona=$zona])
+return concat(' Zona:', ' ', $nom_zona, '---Numero de productos: ',$total)
+
+3)
+
+	(:Obtén por cada zona, el nombre de la zona, su código y el nombre del producto con menos stock actual.:)
+for $zo in //zona
+	let $menosstock:=min(//productos/produc[cod_zona=$zo/cod_zona]/stock_actual),
+	$denomi:=//productos/produc[cod_zona=$zo/cod_zona and stock_actual=$menosstock]/denominacion
+	return <datos>{$zo/nombre,$zo/cod_zona,$denomi,$menosstock}</datos>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 Adrián Martín</title>
+    <script>
+        const border = 2;
+        const tableConstants = "width:80%; height:80vh";
+        const cellData = "<center> - </center>";
+
+        window.onload = function () {
+            const inputFilas = document.getElementById("inputFilas");
+            const inputColumnas = document.getElementById("inputColumnas");
+
+            document.getElementById("generar").addEventListener('click', function() {
+                console.log("Click");
+                generarTabla(inputFilas.value,inputColumnas.value);
+            });
+        }
+
+        function generarTabla(filas, columnas) {
+            var script = "<table border='" + border + "' style='" + tableConstants + "'>";
+            for (var y = 0; y < filas; y++) {
+                script += "<tr>";
+                for (var x = 0; x < columnas; x++)
+                    script += "<td>" + cellData + "</td>";
+                script += "</tr>";
+            }
+            script += "</table>";
+            document.getElementById("display").innerHTML = script;
+        }
+    </script>
+</head>
+
+<body>
+    <form action="#">
+        Filas <input type="number" name="filas" id="inputFilas" value="1">
+        <br>
+        Columnas <input type="number" name="columnas" id="inputColumnas" value="1">
+        <br><br>
+        <input type="button" value="Generar" id="generar">
+
+    </form>
+
+    <p id="display"></p>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+Ejercicio 7. Modificaciones, inserciones, actualizaciones en XQuery. 
+• Incrementa el salario a todos los empleados del departamento de INVESTIGACIÓN un 10% la media de sus salarios. 
+for $emp in //EMP_ROW[D_NOMBRE = ‘INVESTIGACIÓN’]
+let $sal := $emp/SALARIO
+let $por:= ($sal)*0,10
+return update value $sal with data($sal + $por)
+
+• Queremos cambiar la etiqueta OFICIO por puesto
+for $of in //EMP_ROW/OFICIO
+return rename $of as ‘puesto’
+
+• Añadir al departamento una nueva etiqueta con el número de empleados que tiene cada departamento. x 
+for $dep in distincts-value(//EMP_ROW/DEP_NO)
+let $num := count(/EMPLEADOS/EMP_ROW[DEPT_NO=$dep])
+return update insert <n_empledados>[$num]</n_empleados> into //EMP_ROW[DEP_NO=$dep]
+
+• Borrar al empleado que más cobra de cada departamento. 
+for $dep in distincts-value(//EMP_ROW/DEP_NO)
+let $max := max($dep/SALARIO)
+return update delete $max
+
+• Modificar la denominación de VENDEDOR por COMERCIAL. 
+for $of in //EMP_ROW[OFICIO=VENDEDOR ]
+let $val := $of/OFICIO
+return update value $val with ‘COMERCIAL’
+
+Ejercicio 8. Departamentos.xml y Empleados.xml resumen final. 
+• Por recortes en la empresa y tras una serie de despidos queremos eliminar de empleados.xml, todos aquellos empleados que cobran por encima de la media de su departamento. 
+for $dep in distinct-values(/departamentos/DEP_ROW/DEPT_NO)
+let $media:=avg(/EMPLEADOS/EMP_ROW[DEPT_NO=$dep]/SALARIO)
+return update delete $elim /EMPLEADOS/EMP_ROW[DEPT_NO=$dep][SALARIO>$media]

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        function parrafo(x){
+            var parrafo=document.getElementById("parrafo");
+            parrafo.innerHTML="<h1>" + x + "</h1>";
+            
+        }
+    </script>
+</head>
+
+<body>
+    <select onclick="parrafo(this.value)">
+        <option value="">Elige una opcion</option>
+        <option value="Texto1">Texto1</option>
+        <option value="Texto2">Texto2</option>
+        <option value="Texto3">Texto3</option>
+        <option value="Texto4">Texto4</option>
+
+    </select>
+    <p id="parrafo">
+        
+    </p>
+</body>
+
+</html>

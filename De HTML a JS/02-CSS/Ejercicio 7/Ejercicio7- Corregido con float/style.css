@@ -1,0 +1,43 @@
+#parrafo {
+    float: left;
+    width: calc(100%/3);
+    white-space: nowrap;
+}
+
+span.letra {
+    color: red;
+    text-decoration: underline;
+}
+
+h1 {
+    background-color: #EAEAEA;
+    text-transform: capitalize;
+    font-size: 125%;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #FAFAFA;
+}
+
+fieldset {
+    border: 10px, 20px;
+    background-color: #EEEEEE;
+}
+
+legend {
+    margin: 5px;
+    background-color: white;
+    border: 3px;
+    border-color: #EEEEEE;
+}
+
+p {
+    margin: 0px;
+}
+
+div.botones {
+    text-align: right;
+}

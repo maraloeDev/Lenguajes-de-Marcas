@@ -1,0 +1,22 @@
+body{
+    background-image: url(plazaMayor.jpg) ;
+}
+img{
+    display: block;
+    margin-left: calc(50% - 100px);
+    margin-top: calc(50% - 100px);
+    height: 200px;
+    width: 200px;
+}
+h1{
+    color: ivory ;
+    font-size: 70px;
+    margin: auto;
+    height: 300px;
+    width: 400px;
+
+
+/*    position: absolute;
+    top: 40%;
+    left: 35%;*/
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3 - Examen JS Alberto Pérez Castañeda</title>
+    <script type="text/javascript">
+        function Estudiante() {
+            this.nombre = document.getElementById("nombre").value;
+            this.edad = document.getElementById("edad").value;
+            this.notaMedia = document.getElementById("notaMedia").value;
+
+            this.mostrarEst = function mostrar() {
+                return "Nombre del estudiante: " + this.nombre +
+                    "\nEdad del estudiante: " + this.edad +
+                    "\nNota media del estudiante: " + this.notaMedia;
+            }
+        }
+
+        function botonAlmacenar() {
+            nuevoEst = new Estudiante();
+            alert(nuevoEst.mostrarEst());
+        }
+
+        function colorear(elemento, modo) {
+            if (modo == 1) {
+                elemento.style.backgroundColor = 'red';
+                elemento.style.color = 'white';
+            } else if (modo == 0) {
+                elemento.style.backgroundColor = 'white';
+                elemento.style.color = 'black';
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <h3> -REGISTRO - <br></h3>
+        Nombre:<br>
+        <input type="text" id="nombre" onfocus="colorear(this, 1)" onfocusout="colorear(this, 0)"><br><br>
+        Edad:<br>
+        <input type="text" id="edad" onfocus="colorear(this, 1)" onfocusout="colorear(this, 0)"><br><br>
+        Nota media:<br>
+        <input type="text" id="notaMedia" onfocus="colorear(this, 1)" onfocusout="colorear(this, 0)"><br><br>
+        <input type="button" value="Almacenar" onclick="botonAlmacenar()">
+    </form>
+</body>
+
+</html>

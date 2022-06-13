@@ -1,0 +1,21 @@
+ol>li{
+    font-weight: bold;
+}
+#textoverde{
+    color: forestgreen;
+}
+*:not(h1, h2, h3){
+    font-size: 20px;
+}
+h1,h2,h3{
+    background-color: darkseagreen;
+}
+p[color="blue"]{
+    color: gold;
+}
+a:visited{
+    color: seagreen;
+}
+a:link{
+    color: brown;
+}

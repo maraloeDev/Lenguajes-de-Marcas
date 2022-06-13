@@ -1,0 +1,29 @@
+#seleccionar {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+#azul {
+    background-color: blue;
+    color: FFFFFF;
+}
+
+#verde {
+    background-color: #00FF00;
+    color: FFFFFF;
+}
+
+#amarillo {
+    background-color: yellow;
+    color: black;
+}
+
+#rojo {
+    background-color: red;
+    color: #FFFFFF;
+}
+
+#naranja {
+    background-color: orange;
+    color: black;
+}

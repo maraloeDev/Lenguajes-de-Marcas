@@ -1,0 +1,16 @@
+1) for $pac in //pacientes/paciente
+let $id := $pac/vacuna
+let $vac := //vacunacion/vacuna[@id = $id]
+return concat($pac/nombre , " - " , $vac/nombre)
+
+2) for $ciudad in distinct-values (//pacientes/paciente/ciudad)
+let $cant := count(//pacientes/paciente[ciudad = $ciudad])
+return concat( $ciudad , " - " , $cant)
+
+3) for $tipo in distinct-values(//vacunacion/vacuna/precio/@dosis)
+let $precio := avg(//vacunacion/vacuna/precio[@dosis = $tipo])
+return concat($tipo , " - ", $precio)
+
+4) for $vac in //vacunacion/vacuna
+let $media := avg(//pacientes/paciente[vacuna = $vac/@id]/edad)
+return update insert <media-edad>{data($media)}</media-edad> into $vac

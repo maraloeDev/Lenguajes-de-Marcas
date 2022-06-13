@@ -1,0 +1,39 @@
+img{
+    display: block;
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border: aquamarine 5px dotted;
+    /*width: 340px;
+        height: 280px;
+        border: 3px solid;
+        position: absolute;*/
+}
+img:hover{
+    border: solid 10px black;
+}
+#i1{
+    z-index: 1;
+    top: 10%;
+    left: 10%;
+}
+#i2{
+    z-index: 2;
+    top: 20%;
+    left: 20%;
+}
+#i3{
+    z-index: 3;
+    top: 30%;
+    left: 30%;
+}
+#i4{
+    z-index: 4;
+    top:40%;
+    left: 40%;
+}
+#i5{
+    z-index: 5;
+    top:50%;
+    left: 50%;
+}

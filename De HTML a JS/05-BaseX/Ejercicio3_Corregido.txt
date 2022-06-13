@@ -1,0 +1,103 @@
+Utilizando el documento productos.xml. Realiza las siguientes consultas XQuery:
+1. Obtén por cada zona el número de productos que tiene
+for $zona in distinct-values(//produc/cod_zona)
+	let $num_productos:=count(//produc[cod_zona=$zona])
+	return concat("ZONA->", $zona," PRODUCTOS TOTALES--->", $num_productos)
+
+2. Obtén la denominación de los productos entre las etiquetas <zona10></zona10> si son del código de zona 10,
+<zona20></zona20> si son de la zona 20, <zona30></zona30> si son de la 30 y <zona40></zona40> si son de la 40
+for $productos in //productos/produc
+return if ($productos/cod_zona = 10)
+  then <zona10>{data($productos/denominacion)}</zona10>
+else if ($productos/cod_zona = 20)
+  then <zona20>{data($productos/denominacion)}</zona20>
+else if ($productos/cod_zona = 30)
+  then <zona30>{data($productos/denominacion)}</zona30>
+else if ($productos/cod_zona = 40)
+  then <zona40>{data($productos/denominacion)}</zona40>
+else()
+
+for $den in /productos/produc/denominacion
+let $zona:=distinct-values(/productos/produc[denominacion=$den]/cod_zona)
+return concat('<zona', $zona, '>', $den, '</zona', $zona, '>')
+
+3. Obtén por cada zona la denominación del o de los productos más caros
+for $zonas in distinct-values(//produc/cod_zona)
+let $caro:= max(//produc[cod_zona = $zonas]/precio), $denominacion:=//produc[precio=$caro and cod_zona = $zonas]/denominacion
+return concat("Zona: ", $zonas, " - Denominacion: ", $denominacion, " - Precio: ", $caro)
+
+4. Obtén la denominación de los productos contenida entre las etiquetas <placa></placa> para los productos en
+cuya denominación aparece la palabra Placa Base, <memoria></memoria> para los que contienen a la palabra Memoria
+<micro></micro>, para los que contienen la palabra Micro y <otros></otros> para el resto de productos
+for $productos in /productos/produc
+return if(contains($productos/denominacion, "Placa Base"))
+  then <placa>{data($productos/denominacion)}</placa>
+else if(contains($productos/denominacion, "Memoria"))
+  then <memoria>{data($productos/denominacion)}</memoria>
+else if(contains($productos/denominacion, "Micro"))
+  then <micro>{data($productos/denominacion)}</micro>
+else <otros>{data($productos/denominacion)}</otros>
+
+--------------------------------------------------------------
+
+Utilizando el documento sucursales.xml. Realiza las siguientes consultas XQuery:
+1. Devuelve el código de sucursal y el número de cuentas que tiene de tipo AHORRO y de tipo PENSIONES
+for $sucursal in //sucursales/sucursal
+let $codigo:=$sucursal/@codigo, $ahorro:=count($sucursal/cuenta[@tipo = "AHORRO"]), $pensiones:=count($sucursal/cuenta[@tipo = "PENSIONES"])
+return concat("Codigo: ", $codigo, " - Tipo ahorro: ", $ahorro, " - Tipo pensiones: ", $pensiones)
+
+
+2. Devuelve por cada sucursal el código de sucursal, el director, la población, la suma del total debe y la suma
+del total haber de sus cuentas
+
+for $sucursal in //sucursal
+let $poblacion:=$sucursal/poblacion, $saldodebe:=sum($sucursal/cuenta/saldodebe),
+	$saldohay:=sum($sucursal/cuenta/saldohaber)
+return concat("Sucursal: ", $sucursal/@codigo, " - Director: ", $sucursal/director, " - Saldodebe: ", $saldodebe, " - Saldohay: ", $saldohay)
+
+
+3. Devuelve el nombre de los directores, el código de sucursal y la población de las sucursales con más de 3 cuentas
+for $sucursal in //sucursal
+let $director:=$sucursal/director,$codigo:=$sucursal/@codigo ,$poblacion:=$sucursal/poblacion, $cuentas:=count($sucursal/cuenta)
+return if($cuentas  >3)
+then concat("Codigo: ", $codigo ," - Director: ", $director, " - Poblacion: ", $poblacion)
+
+
+for $sucursal in //sucursal
+let $director:=$sucursal/director,$codigo:=$sucursal/@codigo ,$poblacion:=$sucursal/poblacion, $cuentas:=count($sucursal/cuenta)
+return if($cuentas  >3)
+then  <resultado> <director>{data($director)}</director><poblacion> {data($poblacion)} </poblacion> </resultado>
+
+
+
+for $sucursal in //sucursal
+let $director:=$sucursal/director,$codigo:=$sucursal/@codigo ,$poblacion:=$sucursal/poblacion, $cuentas:=count($sucursal/cuenta)
+return if($cuentas  >3)
+then  <resultado> {$director}  {$poblacion} </resultado>
+
+
+
+4. Devuelve por cada sucursal, el código de sucursal y los datos de las cuentas con más saldo debe
+for $sucursal in //sucursal
+let $codigo:=$sucursal/@codigo, $saldomax:= max($sucursal/cuenta/saldodebe), $cuenta_max:=$sucursal/cuenta[saldodebe=$saldomax]
+return concat("Sucursal: ", $codigo, " - Nombre: ", $cuenta_max/nombre, " - Numero: ", $cuenta_max/numero, " - Saldohay: ",$cuenta_max/saldohaber,
+	" - Saldodebe: ", $cuenta_max/saldodebe)
+
+
+for $sucursal in //sucursal
+let $max := $sucursal/cuenta[saldodebe=max($sucursal/cuenta/saldodebe)]
+return 
+<sucursal>
+  <codigo>{data($sucursal/@codigo)}</codigo>
+  {$max}
+</sucursal>
+
+
+
+
+5. Devuelve la cuenta del tipo PENSIONES que ha hecho más aportación
+for $cuentaP in //cuenta[@tipo='PENSIONES']
+let $maxAp:=max(//cuenta[@tipo='PENSIONES']/aportacion)
+return if ($cuentaP/aportacion=$maxAp)
+	then $cuentaP
+else ()

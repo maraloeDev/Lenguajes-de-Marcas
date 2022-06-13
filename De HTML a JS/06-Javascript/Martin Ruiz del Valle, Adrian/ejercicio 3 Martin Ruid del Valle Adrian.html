@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 Adrian Martin</title>
+    <script>
+        window.onload = function () {
+            var cartas = document.getElementsByTagName("img");
+            var index = 0;
+            for (i = 1; i < 5; i++) {
+                for (c = 1; c < 12; c++) {
+                    cartas[index].i = i;
+                    cartas[index].c = c;
+                    cartas[index].visible = false;
+
+                    // Por algun motivo los eventos 'focusin' y 'focusout' no estan funcionando 
+                    // asique voy a hacer que si haces click una vez se vea y si vuelves a hacer click
+                    // se oculte
+                    cartas[index].addEventListener('click', function () {
+                        if (this.visible) {
+                            this.src = "trasera.jpg";
+                            this.visible = false;
+                        } else {
+                            this.src = this.i + "/" + this.c + ".jpg";
+                            this.visible = true;
+                        }
+                    });
+
+                    /*
+                     * Si los focusin y focusout funcionaran sería asi:
+                     *
+                     * cartas[index].addEventListener('focusin',function() {
+                     *    this.src = this.i + "/" + this.c + ".jpg"; 
+                     *});
+                     *
+                     *cartas[index].addEventListener('focusout',function() {
+                     *    this.src = "trasera.jpg"; 
+                     *});
+                     *
+                     */
+
+                    index++;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+        </tr>
+        <tr>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+        </tr>
+        <tr>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+        </tr>
+        <tr>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+            <td><img src="trasera.jpg" alt="carta"></td>
+        </tr>
+    </table>
+</body>
+
+</html>

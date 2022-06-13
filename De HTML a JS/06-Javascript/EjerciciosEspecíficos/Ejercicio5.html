@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 5</title>
+    <script type="text/javascript">
+        function opcionSeleccionada() {
+            opcion = document.getElementById("opciones").value;
+            
+            document.getElementById("parrafo").innerHTML="<h1>"+document.getElementById("opciones")[opcion].textContent+"</h1>";
+            /*
+            if (opcion=="1") {
+                document.getElementById("parrafo").innerHTML="<h1>"+document.getElementById("opciones")[1].textContent+"</h1>";
+            } else if (opcion=="2") {
+                document.getElementById("parrafo").innerHTML="<h1>Texto2</h1>";
+            } else if (opcion=="3") {
+                document.getElementById("parrafo").innerHTML="<h1>Texto3</h1>";
+            } else if (opcion=="4") {
+                document.getElementById("parrafo").innerHTML="<h1>Texto4</h1>";
+            } else {
+                document.getElementById("parrafo").textContent="Vacio";
+            }*/
+        }
+    </script>
+</head>
+<body>
+    <select name="" id="opciones" onchange="opcionSeleccionada()">
+       <option value="Seleccionar Opcion" selected disabled>Seleccione una Opcion</option>
+        <option value="1">Texto1</option>
+        <option value="2">Texto2</option>
+        <option value="3">Texto3</option>
+        <option value="4">Texto4</option>
+    </select>
+    <p id="parrafo">Aquí aparecerá el texto seleccionado</p>
+</body>
+</html>

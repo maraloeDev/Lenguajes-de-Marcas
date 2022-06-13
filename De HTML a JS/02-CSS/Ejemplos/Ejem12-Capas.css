@@ -1,0 +1,32 @@
+img {
+    border: yellowgreen 2px solid;
+    position: absolute;
+    opacity: 50%;
+}
+#img1 {
+    z-index: 1;
+    top:0px;
+    left:10px;
+}
+#img2 {
+    z-index: 2;
+    top:10px;
+    left:20px;
+}
+#img3 {
+    z-index: 3;
+    top:20px;
+    left:30px;
+}
+#img4 {
+    z-index: 4;
+    top:30px;
+    left:40px;
+    visibility: hidden;
+}
+#img5 {
+    z-index: 5;
+    top:40px;
+    left:50px;
+    opacity: 100%;
+}

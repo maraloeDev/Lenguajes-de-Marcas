@@ -1,0 +1,128 @@
+1. Listado de nombre de paciente y nombre de vacuna suministrada
+for $pac in /pacientes/paciente
+let $nomPac:=$pac/nombre
+let $vacuna:=/vacunacion/vacuna[@id=$pac/vacuna]/nombre
+return concat($nomPac, ' - ', $vacuna)
+
+2. Listado de ciudad y número de vacunas suministradas en cada ciudad (no cuáles han sido
+suministradas)
+for $ciudades in distinct-values(//ciudad)
+let $numVac:=count(//paciente[ciudad=$ciudades])
+return concat($ciudades, ' - ', $numVac)
+
+3. Cuál es el precio medio de todos los tipos de dosis de vacuna existente, es decir,
+precio medio de las vacunas de dosis Simple y precio medio de las vacunas de dosis Doble.
+Pero no des por sabido que hay Simple y Doble, podría haber Triple, Cuádruple…
+
+for $tipos_dosis in distinct-values(//precio/data(@dosis))
+let $media_dosis:=avg(//vacuna/precio[@dosis=$tipos_dosis])
+return concat($tipos_dosis,'-',$media_dosis)
+
+
+4. Inserta en cada nodo de vacuna cuál es la media de edad de los paciente vacunados con
+la misma
+
+for $vacuna in distinct-values(//vacuna/@id)
+let $media:=avg(//paciente[vacuna=$vacuna]/edad)
+return
+update insert <edad_media>{$media}</edad_media> into //vacuna[@id=$vacuna]
+
+
+5. Elimina todas las vacunas cuya fecha de fin llega al año 2022
+update delete //vacuna[starts-with(fin,'2022')]
+
+6. Listado de ciudad y todas los nombres de vacunas suministradas en esa ciudad:
+Ej.:
+Valladolid, Pfizer, Moderna, Jansen
+Burgos, Moderna, Jansen
+….
+
+for $ciudad in distinct-values(//paciente/ciudad)
+let $cod_vac:=//paciente[ciudad=$ciudad]/vacuna
+return 
+<resultado>
+<ciudad>{$ciudad}</ciudad>
+<nombre>{for $vacunas in //vacuna[@id=$cod_vac]
+          return data($vacunas/nombre)}
+         </nombre>
+         </resultado> 
+
+for $ciudad in distinct-values(//paciente/ciudad)
+let $codVacuna:= distinct-values(//paciente[ciudad=$ciudad]/vacuna)
+let $nombreVacuna:=//vacuna[@id=$codVacuna]/nombre
+return
+<todo>
+<ciudad>{data($ciudad)}</ciudad><vacuna>{data($nombreVacuna)}</vacuna>
+</todo>
+
+
+
+
+
+
+
+7. 
+
+
+<html>
+  <body>
+      <table border='1'>
+      <tr>
+        <td>id_Paciente</td>
+        <td>Nombre</td>
+        <td>Responsable</td>
+      </tr>{
+        for $pac in //paciente
+        return
+      <tr>
+        <td>{$pac/data(@id)}</td>
+        <td>{data($pac/nombre)}</td>
+        <td>{/vacunacion/vacuna[@id=//paciente/data(@id)]/responsable}</td>
+      </tr>
+      }
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+7. Listado en formato HTML con identificador de paciente, nombre, y responsable vacuna inyectada.
+Paciente  |  Nombre	   |  Responsable
+1	  |  Marco Antonio |  Manuela Gómez
+2 	  |  César Augusto |  Eustaquio Gómez
+
+Recuerda:
+<HTML><BODY><table><tr><td></td><td></td><td></td></tr></table></B
+ODY></HTML>
+
+for $pac in /pacientes/paciente
+let $idPac:=$pac/@id
+let $nomPac:=$pac/nombre
+let $resp:=/vacunacion/vacuna[@id=$pac/vacuna]/responsable
+return
+<HTML>
+<BODY>
+<table>
+<tr>
+		<td>Paciente</td>
+		<td>Nombre</td>
+		<td>Responsable</td>
+	</tr>
+	<tr>
+		<td>{data($idPac)}</td>
+		<td>{data($nomPac)}</td>
+		<td>{data($resp)}</td>
+	</tr>
+</table>
+</BODY>
+</HTML>
+
+for $pac in /pacientes/paciente
+let $idPac:=$pac/@id
+let $nomPac:=$pac/nombre
+let $resp:=/vacunacion/vacuna[@id=$pac/vacuna]/responsable
+return concat('Paciente: ', $idPac, ' - Nombre: ', $nomPac, ' - Responsable: ', $resp)

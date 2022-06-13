@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="body">
+    <form action="script.js" method="get">
+        <select name="Colores" id="color" onchange="cambiarColor(this);">
+            <option value="#FFFFFF" id="seleccionar" selected>Seleccionar</option>
+            <option value="#0000FF" id="azul">Azul</option>
+            <option value="#00FF00" id="verde">Verde</option>
+            <option value="#FFFF00" id="amarillo">Amarillo</option>
+            <option value="#FF0000" id="rojo">Rojo</option>
+            <option value="#FF8000" id="naranja">Naranja</option>
+        </select>
+        <input type="submit">
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>

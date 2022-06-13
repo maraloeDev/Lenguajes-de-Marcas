@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+
+<libros>
+
+<libro titulo="Death Trial" autores="Drakter"
+fecha_publicacion="18-02-2018" isbn="123123123">
+</libro>
+
+<libro titulo="Geronimo Stilton en el reino de la fantasia" autores="Geronimo Stilton"
+fecha_publicacion="25-12-2012" isbn="123412342">
+</libro>
+
+<libro titulo="La metamorfosis" autores="Frank Kafka"
+fecha_publicacion="1915" isbn="9780553213690">
+</libro>
+
+</libros>

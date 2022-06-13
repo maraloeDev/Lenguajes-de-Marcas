@@ -1,0 +1,25 @@
+ul {
+    background-color:cornsilk;
+    width: 10%; 
+    padding: 0px;
+    float: left;
+}
+ul>li{
+    list-style: none;
+
+}
+li>a:hover {
+    background-color: chocolate;
+    color:cornsilk;
+}
+li>a {
+    text-align: center;
+    display: block;
+    height: 100px; /* Altura del componente*/ 
+    line-height: 100px; /* Altura de la línea de texto*/
+    /*vertical-align: center;*/
+    text-decoration: none;
+}
+p {
+    margin-left: 12%;
+}

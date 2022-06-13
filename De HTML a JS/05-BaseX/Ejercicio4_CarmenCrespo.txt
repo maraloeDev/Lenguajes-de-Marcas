@@ -1,0 +1,33 @@
+Utiliza zonas.xml, contiene información de las zonas donde se venden los productos del
+xml productos.xml. Utilizando estos dos documentos realiza las siguientes consultas XQuery:
+
+1. Obtén los datos denominación, precio y nombre de zona de cada producto, ordenado por
+nombre de zona
+for $productos in //productos/produc
+let $den:=$productos/denominacion, $precio:=$productos/precio
+order by //zonas/zona/cod_zona
+return
+  <result>
+    <denominacion>{data($den)}</denominacion>
+    <precio>{data($precio)}</precio>
+  </result>
+
+2. Obtén por cada zona, el nombre de zona y el número de productos que tiene
+for $zona in //zonas/zona
+let $nombre:=$zona/nombre, $productos:=count(//productos/produc)
+return
+  <productos>
+    <nombre>{data($nombre)}</nombre>
+    <num_productos>{data($productos)}</num_productos>
+  </productos>
+
+3. Obtén por cada zona, el nombre de la zona, su código y el nombre del producto con menos
+stock actual.
+for $zona in //zonas/zona
+let $nombre:=$zona/nombre, $cod:=$zona/cos_zona, $producto:=(//productos/produc/min(stock_actual))
+return
+  <productos>
+    <nombre>{data($nombre)}</nombre>
+    <cod_zona>{data($cod)}</cod_zona>
+    <num_productos>{data($producto)}</num_productos>
+  </productos>

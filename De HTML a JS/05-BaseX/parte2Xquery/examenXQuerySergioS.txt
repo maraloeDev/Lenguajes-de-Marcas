@@ -1,0 +1,49 @@
+1.
+for $pac in //paciente
+let $nombre:=//vacuna[@id=$pac/vacuna]/nombre
+return concat($pac/nombre, " // ", $nombre)
+2.
+for $ciu in //paciente/ciudad
+let $num:=count(//paciente[ciudad=$ciu])
+return concat($ciu, " ", $num)
+3.
+for $dosis in distinct-values(//vacuna/precio/@dosis)
+let $precio:=avg(//vacuna/precio[@dosis=$dosis])
+return concat($dosis, " ", $precio)
+4. Inserta en cada nodo de vacuna cuál es la media de edad de los paciente vacunados con la 
+misma. 1,5 pto.
+(dudoso)
+for $vacuna in distinct-values(/vacunacion/vacuna/@id)
+let $edad:=avg(//paciente[vacuna=$vacuna]/edad)
+return update insert <mediaEdad>{$edad}</mediaEdad> following //vacuna/nombre
+5.
+for $vacuna in /vacunacion/vacuna
+let $anio:=substring($vacuna/fin, 1, 4)
+return if($anio='2022') then(update delete $vacuna) else()
+6. Listado de ciudad y todas los nombres de vacunas suministradas en esa ciudad: 2pto.
+Ej.:
+Valladolid, Pfizer, Moderna, Jansen
+Burgos, Moderna, Jansen
+…..
+for $ciu in distinct-values(//paciente/ciudad)
+let $id_vac:=//paciente[$ciu=ciudad]/vacuna
+let $nom:=/vacunacion/vacuna[@id=$id_vac]/nombre
+return concat($ciu, " ", $nom)
+7.
+element html{
+	element body{
+		element table{
+			element tr{
+				element td{"id_Paciente"},
+				element td{"Nombre"},
+				element td{"Responsable"}
+					},
+			for $pac in //paciente
+			return element tr{
+					element td{$pac/data(@id)},
+					element td{$pac/nombre},
+					element td{/vacunacion/vacuna[@id=//paciente/data(@id)]/responsable}
+				}
+			}
+		}
+	}

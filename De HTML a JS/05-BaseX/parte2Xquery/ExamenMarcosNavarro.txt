@@ -1,0 +1,63 @@
+1_
+
+for $pac in /pacientes/paciente
+let $nvac:=/vacunacion/vacuna[@id=$pac/vacuna]/nombre
+return
+<paciente>
+<nombre_paciente>{data($pac/nombre)}</nombre_paciente>
+<nombre_vacuna>{data($nvac)}</nombre_vacuna>
+</paciente>
+
+
+2_
+
+for $pac in distinct-values(/pacientes/paciente/ciudad)
+let $cont:=count(//paciente[ciudad=$pac]/vacuna)
+return <vacunas name="{data($pac)}">{$cont}</vacunas>
+
+
+3_
+
+for $dosis in distinct-values(//vacuna/precio/@dosis)
+let $precio:=avg(//vacuna/precio[@dosis=$dosis])
+return <vacuna dosis="{data($dosis)}">{data($precio)}</vacuna>
+
+
+4_
+
+for $vacuna in distinct-values(/vacunacion/vacuna/@id)
+let $edad:=avg(//paciente[vacuna=$vacuna]/edad)
+return update insert <mediaEdad>{$edad}</mediaEdad> following //vacuna/nombre
+
+
+6_
+
+(:
+Listado de ciudad y todas los nombres de vacunas
+suministradas en esa ciudad
+:)
+for $ciudad in /pacientes/paciente/ciudad
+let $vacuna:=
+return <vacuna ciudad="{data($ciudad)}"></vacuna>
+
+
+7_
+
+<html>{
+  <body>{
+      <table border="{1}">{
+      <tr>{
+        <td>{"id_Paciente"}</td>,
+        <td>{"Nombre"}</td>,
+        <td>{"Responsable"}</td>
+      }</tr>,
+        for $pac in //paciente
+        return
+      <tr>{
+        <td>{$pac/data(@id)}</td>,
+        <td>{data($pac/nombre)}</td>,
+        <td>{/vacunacion/vacuna[@id=//paciente/data(@id)]/responsable}</td>
+      }</tr>
+    }</table>
+  }</body>
+}</html>

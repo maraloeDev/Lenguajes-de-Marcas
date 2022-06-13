@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        function contador(x){
+            var span=document.getElementById("caracteres");
+            
+            span.innerHTML=x.maxLength-x.value.length;
+        }
+    </script>
+</head>
+<body>
+    <textarea id="textarea" maxlength="100" onkeypress="contador(this)"></textarea>
+    <!--<textarea id="textarea" maxlength="100"  onkeydown="contador(this)"></textarea>
+    <textarea id="textarea" maxlength="100" onkeydown="contador(this)" onkeypress="contador(this)"></textarea>-->
+    <p>Puedes escribir hasta <span id="caracteres">100</span>  caracteres adicionales</p>
+</body>
+</html>

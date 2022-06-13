@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 Adrian Martin</title>
+</head>
+<script>
+    var nombres = new Array();
+    var edades = new Array();
+    var index = 0;
+
+    window.onload = function () {
+        const inputNombre = document.getElementById("inputNombre");
+        const inputEdad = document.getElementById("inputEdad");
+        const buttonInscribir = document.getElementById("inscribir");
+        const buttonListar = document.getElementById("listar");
+        const canvas = document.getElementById("display");
+
+        buttonInscribir.addEventListener('click', function () {
+            var nombre = inputNombre.value;
+            var edad = inputEdad.value;
+
+            if (nombre === '' || edad == '')
+                return;
+
+            //console.log(">> Inscribir: " + nombre + ", " + edad);
+
+            if (edad < 18) {
+                // Aqui estaría el mensaje de error pero no recuerdo el metodo
+            }
+
+            nombres[index] = nombre;
+            edades[index++] = edad;
+
+            //console.log("limpiado");
+            inputNombre.value = "";
+            inputEdad.value = "";
+        });
+
+        buttonListar.addEventListener('click', function () {
+            if (index < 1)
+                return;
+            var data = "";
+            for (i = 0; i < index; i++) {
+                data += "<label>Nombre: <b>" + nombres[i] + "</b></label>";
+                data += "<br>";
+                data += "<label>Edad: <b>" + edades[i] + "</b></label>";
+                data += "<br><br>";
+            }
+            canvas.innerHTML = data;
+        });
+
+    }
+</script>
+
+<body>
+    <form action="#">
+        Nombre: <input type="text" name="nombre" id="inputNombre">
+        <br>
+        Edad: <input type="number" name="edad" id="inputEdad">
+        <br><br>
+        <input type="button" value="Inscribir" id="inscribir">
+        <input type="button" value="Listar" id="listar">
+    </form>
+    <p id="display"></p>
+</body>
+
+</html>

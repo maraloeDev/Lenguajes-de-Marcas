@@ -1,0 +1,10 @@
+    Los eventos onClick y onDblClick
+    Los eventos onLoad y onUnLoad
+    Los eventos onMouseOver y onMouseOut
+    Los eventos onMouseDown, onMouseMove y onMouseUp
+    El evento onChange
+    Los eventos onFocus y onBlur
+    Los eventos onKeyDown, onKeyUp y onKeyPress
+    El evento onSelect
+    El evento onSubmit
+    El evento onReset

@@ -1,0 +1,29 @@
+Ejercicio 7
+--Incrementa el salario a todos los empleados del departamento de INVESTIGACIÓN un 10% la media de sus salarios.
+for $empl in /EMPLEADOS/EMP_ROW[DEPT_NO=20]
+let $ert:=$empl/salario
+let $salario:=$empl/avg(salario)*1.10
+
+return update replace $salario with <SALARIO>{data($ert +$salario)*}</SALARIO>
+
+Queremos cambiar la etiqueta OFICIO por puesto
+
+update rename /EMPLEADOS/OFICIO as 'puesto'
+
+• Añadir a departamento una nueva etiqueta con el número de empleados que tiene cada departamento. <NUMEMPLE>x</NUMEMPLE>
+for 
+
+for $dep in distintc-values(/departmentos/DEP_ROW/DEPT_NO)
+LET $nymplo:= count (/EMPLEADOS/EMP_ROW[DEPT_NO=$DEP])
+return update inser 
+	<NUMEMPL> ($nymplo) </NUMEMPL>
+into /departamentos/DEPT_ROW=[DEPT_NO=$dep)]
+
+
+	
+Borrar al empleado que más cobra de cada departamento.
+• Modificar la denominación de VENDEDOR por COMERCIAL.
+for $dep in /departamentos/DEP_ROW 
+	for $emp in /EMPLEADOS/EMP_ROW 
+	let $maxsal:= -max($emp/SALARIO)
+	Llet $maxalDep

@@ -1,0 +1,25 @@
+body{
+    margin: 0px;
+}
+.Propiedades1,.Propiedades2 {
+    display: inline;
+}
+.Propiedades1{
+margin: 50px;
+border: thin solid blue;
+}
+.Propiedades2{
+    margin: 10px;
+    border: thin dashed red;
+}img{
+
+    float: left;
+}
+#ult{
+    float: right;
+    width: 200px;
+    height: 200px;
+}
+p:last-of-type{
+    clear: both;
+}

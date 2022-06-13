@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<libros>
+    <libro>
+        <título>Pizza</título>
+        <autor>Baron von Queso</autor>
+        <editorial>Domino's</editorial>
+        <fechaPub>
+            <día>03</día>
+            <mes>02</mes>
+            <año>2019</año>
+        </fechaPub>
+        <isbn>978-92-187652-1234-08</isbn>
+    </libro>
+    <libro>
+        <título>Como decir que no</título>
+        <autor>Sieso García</autor>
+        <editorial>Editoriales SI</editorial>
+        <fechaPub>
+            <día>15</día>
+            <mes>04</mes>
+            <año>2007</año>
+        </fechaPub>
+        <isbn>978-023-193844-4222-23</isbn>
+    </libro>
+    <libro>
+        <título>Patata</título>
+        <autor>Frita</autor>
+        <editorial>O cocida</editorial>
+        <fechaPub>
+            <día>16</día>
+            <mes>09</mes>
+            <año>2020</año>
+        </fechaPub>
+        <isbn>978-024-138412-3948-34</isbn>
+    </libro>
+</libros>
+
+

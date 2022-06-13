@@ -1,0 +1,68 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio02</title>
+    <script>
+        window.onload = function() {
+            parrafos = document.getElementsByTagName("p")
+            for (i = 0; i < parrafos.length; i++) {
+                console.log("entra")
+                if (i % 2 == 0) {
+                    parrafos[i].onmouseover = pintarPar
+                } else {
+                    parrafos[i].onmouseover = pintarImpar
+                }
+                parrafos[i].onmouseout = pintadoInicial
+
+            }
+
+        }
+
+        function pintarPar(e) {
+            console.log("pintarPar")
+            parrafos = document.getElementsByTagName("p")
+            for (i = 0; i < parrafos.length; i++) {
+                if (i % 2 == 0) {
+                    parrafos[i].style.backgroundColor = "white";
+                } else {
+                    parrafos[i].style.backgroundColor = "lightgreen";
+                }
+
+            }
+        }
+
+        function pintarImpar(e) {
+            console.log("pintarImpar")
+            parrafos = document.getElementsByTagName("p")
+            for (i = 0; i < parrafos.length; i++) {
+                if (i % 2 == 0) {
+                    parrafos[i].style.backgroundColor = "lightgreen";
+                } else {
+                    parrafos[i].style.backgroundColor = "white";
+                }
+
+            }
+        }
+
+        function pintadoInicial(e) {
+            parrafos = document.getElementsByTagName("p")
+            for (i = 0; i < parrafos.length; i++)
+                parrafos[i].style.backgroundColor = "white";
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium deserunt nemo placeat voluptatem magni fuga sapiente ab cum, vero quibusdam laboriosam iste sequi omnis qui nam. Esse aut sed eos!</p>
+    <p>Architecto dolorum, perspiciatis consequatur officia, ut quis veniam assumenda laboriosam saepe itaque voluptas alias cupiditate eum ratione asperiores eius non maxime fuga. A mollitia soluta perferendis numquam, necessitatibus eos. Expedita.</p>
+    <p>Saepe harum, tempore laudantium rerum ullam delectus praesentium impedit modi repellendus dolores porro placeat eligendi, expedita ipsam voluptas, ad voluptatem aut. Omnis, qui nisi neque assumenda iste facilis, sed est.</p>
+    <p>Blanditiis fugit, soluta inventore totam laudantium! Ipsum, ratione reiciendis minus a numquam, repudiandae quisquam illo fugiat ea. At, deleniti. Repudiandae unde odio molestiae quis suscipit, reiciendis commodi illum quibusdam qui.</p>
+    <p>Dolores neque mollitia itaque architecto, veritatis reprehenderit culpa possimus vel aliquid minima ipsam incidunt dolorum modi nulla. Animi unde, esse praesentium. Ipsa enim maxime magnam aut? Nisi reiciendis dolorem sed!</p>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+Tenemos una casilla de texto input type=”text”, un botón “Generar” y un botón “Cambiar”.
+Al pulsar en el botón se crearán tantos párrafos HTML como se indique en la casilla de texto, con
+texto de cualquier longitud pudiendo ser todos iguales en cuanto a contenido. Una vez que se haya
+pulsado en Generar, no antes, el usuario podrá pulsar en Cambiar y automáticamente todos los
+párrafos generados se convertirán en listas ordenadas.
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1 </title>
+    <script type="text/javascript">
+        window.onload = function() {
+            activado = false;
+        }
+
+        function botonGenerar() {
+            valor = document.getElementById("numeroP").value;
+            if (valor > 0) {
+
+                parrafos = "";
+                for (i = 1; i <= valor; i++) {
+                    parrafos = parrafos + "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam totam, adipisci nisi fugiat explicabo ex dignissimos, debitis temporibus quas quasi iste amet. Sequi molestiae nostrum porro soluta! Reiciendis, voluptatum, culpa?</p>"
+                }
+
+                activado = true;
+                document.getElementById("textoParrafo").innerHTML = parrafos;
+
+            } else {
+                alert("Por favor, introduce un número de párrafos mayor que 0");
+            }
+        }
+
+        function botonCambiar() {
+            if (activado != false) {
+                parrafos = "<ol>";
+                for (i = 1; i <= valor; i++) {
+                    parrafos = parrafos + "<li><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam totam, adipisci nisi fugiat explicabo ex dignissimos, debitis temporibus quas quasi iste amet. Sequi molestiae nostrum porro soluta! Reiciendis, voluptatum, culpa?</p></li>"
+                }
+                parrafos = parrafos + "</ol>";
+                document.getElementById("textoParrafo").innerHTML = parrafos;
+            } else {
+                alert("Todavía no has generado los párrafos.");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    Introduce un número de párrafos<br>
+    <input type="text" id="numeroP" placeholder="Escribe aquí el número"><br><br>
+    <input type="button" value="Generar" onclick="botonGenerar()"><br><br>
+    <input type="button" id="botCamb" value="Cambiar" onclick="botonCambiar()"><br><br>
+
+    <div id="textoParrafo"></div>
+</body>
+
+</html>

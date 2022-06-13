@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            alert(document.getElementById("primero"));
+            alert(document.getElementById("primero").value);
+            alert(document.getElementById("primero").textContent);
+            alert(document.getElementById("primero").innerHTML);
+            
+            alert(document.getElementById("comentario").value);
+            
+            alert(document.getElementById("casilla").value);
+            
+            document.getElementById("primero").innerHTML="<img src='https://gregoriofer.com/logo.jpg'>"
+        }
+    </script>
+</head>
+<body>
+    <p id="primero">ESTOY EN EL PRIMER PARRAFO.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero molestiae possimus, explicabo numquam quisquam natus illum beatae, in consectetur ipsam consequatur aliquam modi quia! Labore illum maiores nam mollitia perferendis!</p>
+    <textarea value="Valor de comentario...." id="comentario">Dentro del text area</textarea>
+    <input type="text" value="valor dado" id="casilla">
+</body>
+</html>

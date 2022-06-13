@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE comunidad [
+<!ELEMENT comunidad (vecino+)>
+<!ELEMENT vecino (codigovecino, nombre, apellidos, portal, piso, letra, codcuentacorriente, cargo)>
+<!ELEMENT codigovecino (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT apellidos (#PCDATA)>
+<!ELEMENT portal (#PCDATA)>
+<!ELEMENT piso (#PCDATA)>
+<!ELEMENT letra (#PCDATA)>
+<!ELEMENT codcuentacorriente (#PCDATA)>
+<!ELEMENT cargo (presidente | vicepresidente | secretario | vocal )*>
+    <!ELEMENT presidente EMPTY>
+    <!ELEMENT vicepresidente EMPTY>
+    <!ELEMENT secretario EMPTY>
+    <!ELEMENT vocal EMPTY>
+]>
+<comunidad>
+    <vecino>
+        <codigovecino>23456789C</codigovecino>
+        <nombre>Pepe</nombre>
+        <apellidos>Rodriguez Pelaez</apellidos>
+        <portal>57</portal>
+        <piso>4</piso>
+        <letra>A</letra>
+        <codcuentacorriente>4567904678945989</codcuentacorriente>
+        <cargo> 
+            <presidente />
+        </cargo>
+    </vecino>
+    <vecino>
+        <codigovecino>58962357P</codigovecino>
+        <nombre>Mario</nombre>
+        <apellidos>Martinez Gomez</apellidos>
+        <portal>55</portal>
+        <piso>3</piso>
+        <letra>B</letra>
+        <codcuentacorriente>895264785231578</codcuentacorriente>
+        <cargo> 
+            <secretario />
+        </cargo>
+    </vecino>
+    <vecino>
+        <codigovecino>71207648I</codigovecino>
+        <nombre>Laura</nombre>
+        <apellidos>Jimenez Roman</apellidos>
+        <portal>59</portal>
+        <piso>2</piso>
+        <letra>A</letra>
+        <codcuentacorriente>4579095678324510</codcuentacorriente>
+        <cargo> 
+			<presidente />
+            <vicepresidente />
+        </cargo>
+    </vecino>
+</comunidad>

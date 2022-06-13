@@ -1,0 +1,34 @@
+Devuelve el código de sucursal y el número de cuentas que tiene de tipo AHORRO y de tipo
+PENSIONES
+for $sucursal in /sucursales/sucursal
+return concat(
+  'Codigo: ',$sucursal/@codigo,
+  ' Ahorro: ',$sucursal/count(cuenta[@tipo='AHORRO']),
+  ' Pensiones: ',$sucursal/count(cuenta[@tipo='PENSIONES']))
+Devuelve por cada sucursal el código de sucursal, el director, la población, la suma del total
+debe y la suma del total haber de sus cuentas.
+for $sucursal in /sucursales/sucursal
+return concat(
+  'Codigo: ',$sucursal/@codigo,
+  ', Director: ',$sucursal/director,
+  ', Poblacion: ',$sucursal/poblacion,
+  ', Debe: ', $sucursal/sum(cuenta/saldodebe),
+  ', Haber: ', $sucursal/sum(cuenta/saldohaber))
+Devuelve el nombre de los directores, el código de sucursal y la población de las sucursales con
+más de 3 cuentas.
+for $sucursal in /sucursales/sucursal[count(cuenta)>3]
+return concat('Codigo: ',$sucursal/@codigo,
+    ' Director: ',$sucursal/director,
+    ' Poblacion: ',$sucursal/poblacion)
+Devuelve por cada sucursal, el código de sucursal y los datos de las cuentas con más saldo debe.
+for $sucursal in /sucursales/sucursal
+let $max := $sucursal/cuenta[saldodebe=max($sucursal/cuenta/saldodebe)]
+return 
+<sucursal>
+  <codigo>{data($sucursal/@codigo)}</codigo>
+  {$max}
+</sucursal>
+
+Devuelve la cuenta del tipo PENSIONES que ha hecho más aportación.
+let $cuenta := //cuenta[@tipo='PENSIONES' and aportacion=max(//aportacion)]
+return $cuenta

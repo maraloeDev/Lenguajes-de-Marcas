@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Realiza una web que tenga un texarea que cuente el número caracteres que el usuario va
+      // escribiendo y se vaya reduciendo en un texto “Puedes escribir hasta x caracteres adicionales”
+      // donde x tiene como valor máximo 100 posibles caracteres
+
+      window.onload = function (e) {
+        var textArea = document.getElementById("area");
+        var caracteres = 100;
+
+        document.getElementById("letrasRestantes").innerHTML = caracteres;
+
+        textArea.onkeydown = function (e) {
+          if (e.keyCode > 32 && e.keyCode < 254 && caracteres > 0) {
+            console.log("Entro");
+            caracteres = caracteres - 1;
+            document.getElementById("letrasRestantes").innerHTML = caracteres;
+          }
+          if (e.keyCode === 8 && caracteres < 100) {
+            caracteres = caracteres + 1;
+            document.getElementById("letrasRestantes").innerHTML = caracteres;
+          }
+          if (caracteres === 0) {
+            textArea.disabled = "true";
+          }
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <p>Puedes escribir hasta <span id="letrasRestantes"></span> restantes</p>
+    <textarea name="" id="area" cols="80" rows="30"></textarea>
+  </body>
+</html>

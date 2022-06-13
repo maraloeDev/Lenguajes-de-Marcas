@@ -1,0 +1,29 @@
+ul.menu {
+    list-style: none;
+    text-align: center;
+}
+ul.menu li {
+    display: inline-block;
+    font-size: large;
+    padding-left: 3%;
+    padding-right: 3%;
+    position: relative;
+}
+ul.menu li div {
+    display: none;
+    width: 25%;
+    background-color: khaki;
+    position: absolute;
+    top: 100%;
+    right: 50%;
+}
+
+ul.menu li:hover {
+    color: gray;
+    text-align: left;
+    margin-right: 15%;
+}
+
+ul.menu li:hover div {
+    display: inline-block;
+}

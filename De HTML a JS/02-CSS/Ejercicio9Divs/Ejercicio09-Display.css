@@ -1,0 +1,32 @@
+body{
+    background-color: red;
+}
+#azules {
+    display: block;
+    margin-top: 50px;
+    text-align: center;
+}
+#verdes
+{
+    text-align: center;
+}
+.azul{
+    background-color: blue;
+    width: 30%;
+    margin: 1%;
+    height: 130px;
+    display: inline-block;
+}
+.amarillo{
+    background-color: yellow;
+    width: 100%;
+    margin-top:  100px;
+    height: 30px;
+}
+.verde{
+    background-color: green;
+    width: 95%;
+    height:100px;
+    margin-top: 50px;
+    display: inline-block;
+}
