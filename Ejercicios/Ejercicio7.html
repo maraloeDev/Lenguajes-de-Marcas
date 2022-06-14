@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+
+<body>
+    <span id="texto">Puedes escribir hasta <span id="caracteres"></span> caracteres restantes</span><br>
+    <textarea name="texto" id="textarea" cols="30" rows="10"></textarea>
+    <script>
+        let limite = 30;
+        let char = document.getElementById("caracteres");
+        let textarea = document.getElementById("textarea");
+        char.innerHTML = +limite;
+        textarea.onkeydown = function (e) {
+            console.log(e.keyCode);
+            if (e.keyCode >= 65 && e.keyCode <= 90 || e.keyCode === 32) {
+                char.innerHTML = --limite;
+                console.log(limite - document.getElementById("textarea").value.lenght);
+            }
+            if (e.keyCode === 8 && char.innerText < 30) {
+                char.innerHTML = ++limite;
+            }
+            if (char.innerText < 0) {
+                textarea.style.color = "red";
+            }
+            if (char.innerText >= 0) {
+                textarea.style.color = "black";
+            }
+        }
+    </script>
+</body>
+
+</html>

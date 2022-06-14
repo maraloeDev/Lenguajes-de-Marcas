@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2</title>
+    <script type="text/javascript">
+        
+        function par() {
+            parrafos = document.getElementsByTagName("p")
+            for (i = 0; i < parrafos.length; i++) {
+                if (i % 2 == 0) {
+                    parrafos[i].style.backgroundColor = "white";
+                } else {
+                    parrafos[i].style.backgroundColor = "lightgreen";
+                }
+
+            }
+            
+        }
+        function impar() {
+            parrafos = document.getElementsByTagName("p")
+            for (i = 0; i < parrafos.length; i++) {
+                if (i % 2 == 0) {
+                    parrafos[i].style.backgroundColor = "lightgreen";
+                } else {
+                    parrafos[i].style.backgroundColor = "white";
+                }
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <p onmouseover="impar()">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse impedit tempora laboriosam assumenda eligendi minus incidunt, excepturi placeat ducimus sed reprehenderit deleniti vel saepe laborum mollitia autem quo sint quas.</p>
+    <p onmouseover="par()">Placeat voluptatum, delectus itaque dolorem et possimus porro aliquam illum, commodi culpa. Dolores alias, quisquam eos recusandae, laudantium magni, culpa dolore inventore earum doloremque excepturi, atque sint nam neque eligendi.</p>
+    <p onmouseover="impar()">Voluptas ea quibusdam nobis in numquam dolorem, quos et debitis facere nulla, iste eos voluptate blanditiis ipsum quam corrupti perferendis sunt a! Unde repellat repellendus impedit numquam facere eligendi voluptates.</p>
+    <p onmouseover="par()">Harum et voluptate minima culpa nobis fugit porro possimus quia fuga officia in voluptatibus repellat, labore rerum voluptates facere consectetur dolore ex quibusdam hic commodi architecto deserunt sed error nulla.</p>
+    <p onmouseover="impar()">Numquam ducimus voluptates recusandae unde cupiditate est voluptatum commodi porro autem soluta a, necessitatibus, ipsum natus vitae sint iste vel. Pariatur, vitae quas ipsum quo nihil nemo, sunt eveniet magni.</p>
+</body>
+
+</html>
