@@ -1,0 +1,18 @@
+body {
+    font-family: sans-serif;
+
+    text-align: justify;
+    background-color: #fafafa;
+}
+
+h1 {
+    text-align: center;
+    background-color: #EAEAEA;
+    font-size: 125%;
+
+}
+
+legend {
+    margin: 10px 20px;
+    background-color: #EEEEEE;
+}

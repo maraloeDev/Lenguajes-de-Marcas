@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*Realiza un text area en el que según vayamos escribiendo veamos un contador en la parte
+        inferior al text area con el número de letras pulsadas hasta el momento. Cuando supere 10
+        letras se pondrá el fondo de la casilla de rojo y texto en blanco, cuando baje de 10 volverá
+        a fondo blanco y letras negras.*/
+
+        function teclas() {
+
+            var caracteres = document.getElementById("area").value;
+            var num = caracteres.length;
+            document.getElementById("cont").innerHTML = "Los caracteres que llevas escritos son: " + num;
+            if (num == 10) {
+               document.getElementById("area").style.background = "red";
+               document.getElementById("area").style.color = "white";
+            }else if(num < 10){
+               document.getElementById("area").style.background = "white";
+               document.getElementById("area").style.color = "black";  
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+
+    <textarea name="" id="area" cols="30" rows="10" oninput="teclas()"></textarea>
+    <br>
+    <h3 id="cont"></h3>
+
+</body>
+
+</html>

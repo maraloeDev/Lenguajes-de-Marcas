@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calificaciones fecha="10-5-2013">
+    <alumno tipo="repetidor">
+        <nombre>Luis Gomez</nombre>
+        <materia>Microeconomía</materia>
+        <carrera>ADE</carrera>
+        <nota>60</nota>
+    </alumno>
+    <alumno tipo="no repetidor">
+        <nombre>Maria Lopez</nombre>
+        <materia>Laboratorio</materia>
+        <carrera>Físicas</carrera>
+        <nota>30</nota>
+    </alumno>
+    <alumno tipo="no repetidor">
+        <nombre>Juan Perez</nombre>
+        <materia>Contabilidad</materia>
+        <carrera>ADE</carrera>
+        <nota>90</nota>
+    </alumno>
+    <alumno tipo="no repetidor">
+        <nombre>Juan Perez</nombre>
+        <materia>Matematicas</materia>
+        <carrera>ADE</carrera>
+        <nota>55</nota>
+    </alumno>
+    <alumno tipo="no repetidor">
+        <nombre>Maria Lopez</nombre>
+        <materia>Álgebra</materia>
+        <carrera>Físicas</carrera>
+        <nota>40</nota>
+    </alumno>
+</calificaciones>
