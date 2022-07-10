@@ -1,0 +1,18 @@
+p.azul{
+
+    color: blue;
+}
+
+ul>li.rojo {
+
+    color: red;
+}
+
+ul>li.azul {
+    color: blue;
+}
+
+p#verde{
+
+    color: green;
+}

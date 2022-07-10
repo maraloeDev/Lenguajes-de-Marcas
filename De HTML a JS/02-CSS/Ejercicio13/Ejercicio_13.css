@@ -1,0 +1,23 @@
+body {
+  background-color: #6EC247;
+}
+#menu{
+    
+    background-color: #2D864F;
+   position: sticky;
+   top: 0%;
+   
+}
+ul>li{
+   
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    line-height: 70px;
+    width: 100px;
+    height: 70px;
+}
+ul>li:hover{
+    background-color: #6EC247;
+
+}

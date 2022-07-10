@@ -1,0 +1,25 @@
+p.mayus{
+
+    text-transform: uppercase;
+    color: green;
+    
+}
+
+p{
+    background-image: url(../Ejercicio2/imagen/logo.jpg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+p:nth-child(even){ 
+
+    background-color: gray;
+
+}
+
+img:hover{
+
+    visibility: hidden;
+
+}
+
