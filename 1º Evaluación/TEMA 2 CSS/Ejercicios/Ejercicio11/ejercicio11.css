@@ -1,0 +1,22 @@
+body{
+
+    background-image: url(../Ejercicio11/imagen/plazaMayor.jpg);
+
+    background-repeat: no-repeat;
+}
+
+h1{
+
+    margin-top: 20%;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+}
+
+img{
+
+    width: 150px;
+    margin-left: 40%;
+
+
+}

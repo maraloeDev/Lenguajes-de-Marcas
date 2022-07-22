@@ -1,0 +1,11 @@
+div.col{
+    float: left;
+    width: 45%;
+    border-style: solid;
+}
+
+div>p.col{
+    float: right;
+    width: 45%;
+    border-style: solid;
+    }

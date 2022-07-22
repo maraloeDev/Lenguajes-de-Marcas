@@ -1,0 +1,27 @@
+p.normal{
+
+background-color: cornflowerblue;
+}
+h2{
+    background-color: white;
+    text-align: center;
+}
+
+div.azul{
+
+    background-color: cadetblue;
+}
+
+div>p.grande{
+    background-color: blue;
+    color: white;
+}
+div>p#rojo{
+
+    color: red;
+}
+
+div>p.amarillo{
+
+    color: yellow;
+}

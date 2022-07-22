@@ -1,0 +1,34 @@
+
+
+ol>li{
+
+    font-weight: bold;
+
+}
+
+#textoverde{
+
+    color: green;
+}
+
+h1, h2, h3{
+
+    background-color: blue;
+}
+
+p.blue{
+
+    color: yellow;
+}
+
+a{
+
+    color: blue;
+}
+
+a:active{
+
+    color: green;
+}
+
+

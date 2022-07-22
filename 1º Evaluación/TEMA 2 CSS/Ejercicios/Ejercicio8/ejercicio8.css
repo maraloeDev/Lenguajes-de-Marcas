@@ -1,0 +1,26 @@
+body{
+    margin: 0px;
+}
+
+
+p.Propiedades1{
+
+    margin: 50px;
+    border-style: solid;
+    border-color: blue;
+}
+
+span,p.Propiedades2{
+    margin: 10px;
+    border-style: dotted;
+    border-color: red;
+}
+p.prim{
+    font-size: 400px;
+
+    text-align: end;
+}
+
+img{
+    float: left;
+}

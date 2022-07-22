@@ -1,0 +1,33 @@
+body{
+    font-family: sans-serif;
+    background-color: #FAFAFA;
+}
+
+h1{
+    text-align: center;
+    background-color: #EAEAEA;
+
+    font-weight: 125%;
+}
+
+fieldset{
+    margin: 10px, 20px;
+
+    background-color: #EEEEEE;
+}
+
+legend{
+    margin: 0px, 5px;
+    background-color: white;
+}
+
+div.boton{
+
+    text-align: end;
+}
+
+span.letra{
+
+    color: red;
+    text-decoration: underline;
+}

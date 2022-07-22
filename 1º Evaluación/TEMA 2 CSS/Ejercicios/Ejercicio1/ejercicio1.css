@@ -1,0 +1,24 @@
+p.blue{
+
+    color: blue;
+}
+
+ul>li.red{
+
+    color: red;
+}
+
+ul>li{
+
+    color: black;
+}
+
+ul>li#blue{
+
+    color: blue;
+}
+
+p#verde{
+
+    color: green;
+}
