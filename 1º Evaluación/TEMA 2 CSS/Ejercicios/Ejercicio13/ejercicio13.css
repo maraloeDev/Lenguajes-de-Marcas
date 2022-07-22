@@ -1,0 +1,20 @@
+body{
+    background-color: green;
+}
+
+ul>li{
+        list-style: none;
+        display: inline-block;
+        width: 10%;
+        height: 50px;       
+}
+
+ul>li:hover{
+    background-color: green;
+
+}
+
+div{
+    background-color: red;
+}
+

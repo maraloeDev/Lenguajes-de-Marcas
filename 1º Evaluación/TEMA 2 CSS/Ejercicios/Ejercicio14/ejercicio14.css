@@ -1,0 +1,43 @@
+img{
+    display: block;
+    width: 500px;
+    position: absolute;   
+
+}
+
+img:hover{
+
+    border: dotted;
+
+}
+
+.id1{
+    z-index: 1;
+    top: 10%;
+    left: 10%;
+}
+.id2{
+    z-index: 2;
+    top: 20%;
+    left: 20%;
+}
+.id3{
+    z-index: 3;
+    top: 30%;
+    left: 30%;
+}
+.id4{
+    z-index: 4;
+    top: 40%;
+    left: 40%;
+}
+.id5{
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+}
+.id6{
+    z-index: 6;
+    top: 60%;
+    left: 60%;
+}
