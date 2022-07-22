@@ -1,0 +1,46 @@
+.ultimo{
+    float: left;
+    border: solid;
+    width: 80px;
+    text-align: center;
+    margin-left: 15%;
+}
+
+.ultimo:hover{
+    border: solid;
+    background-color: black;
+    text-decoration: underline red;
+    color: red;
+    margin-left: 15%;
+}
+
+.primero{
+    float: right;
+    width: 80px;
+    float: right;
+    border: solid;
+    text-align: center;
+    text-decoration: underline;
+    color: red;
+    background-color: black;
+    margin-right: 24%;
+}
+.primero:hover{
+    background-color: white;
+    color: black;
+    margin-right: 24%;
+}
+.nums{
+    margin-left: 20%;
+    text-align: center;
+    height: 80px;
+    border: dotted;
+    width: 50%;
+}
+.nums:nth-child(odd){
+    background-color: gray;
+}
+
+.nums:nth-child(even){
+    background-color: aquamarine;
+}
