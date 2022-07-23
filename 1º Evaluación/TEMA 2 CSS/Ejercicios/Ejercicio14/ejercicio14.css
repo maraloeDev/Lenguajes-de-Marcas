@@ -1,43 +1,46 @@
 img{
     display: block;
-    width: 500px;
-    position: absolute;   
-
+    position: absolute;
+    border: double;
 }
 
 img:hover{
-
-    border: dotted;
-
+   border: solid;
 }
 
-.id1{
+img.img1{
     z-index: 1;
-    top: 10%;
     left: 10%;
+    top: 10%;
 }
-.id2{
+
+img>div:hover{
+    z-index: 1;
+    left: 10%;
+    top: 10%;
+    
+}
+
+img.img2{
     z-index: 2;
-    top: 20%;
     left: 20%;
+    top: 20%;
 }
-.id3{
+
+img.img3{
     z-index: 3;
-    top: 30%;
     left: 30%;
+    top: 30%;
 }
-.id4{
+
+img.img4{
     z-index: 4;
-    top: 40%;
     left: 40%;
+    top: 40%;
 }
-.id5{
+
+img.img5{
     z-index: 5;
-    top: 50%;
     left: 50%;
-}
-.id6{
-    z-index: 6;
-    top: 60%;
-    left: 60%;
+    top: 50%;
 }
