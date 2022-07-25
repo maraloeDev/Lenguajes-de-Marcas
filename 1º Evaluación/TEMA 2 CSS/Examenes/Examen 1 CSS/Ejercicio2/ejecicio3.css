@@ -1,0 +1,30 @@
+ul{
+    list-style-type: none;
+    margin-top: 0px;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    background-color: lightgrey;
+    height: 50px;
+    width: 100%;
+}
+
+li>a{
+    text-decoration: none;
+    color: black;
+    line-height: 50px;
+    width: 20%;
+    display: inline;
+   
+}
+
+#anterior{
+    float: left;
+    text-align: center;
+}
+
+#siguiente{
+    float: right;
+    text-align: center;
+   
+}

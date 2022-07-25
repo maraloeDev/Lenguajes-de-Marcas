@@ -1,0 +1,31 @@
+p{
+    background-image: url(https://www.gregoriofer.com/logo.jpg);
+
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+
+}
+
+
+
+p:last-of-type{
+
+    text-transform:uppercase ;
+
+    color: green;
+}
+
+p:first-child {
+    text-transform: uppercase;
+    color: green;
+}
+
+p:nth-child(even) {
+    color: gray;
+}
+
+
+img:hover {
+    visibility: collapse;
+}
