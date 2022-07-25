@@ -1,0 +1,22 @@
+ul{
+    list-style-type: none;
+    background-color: gray;
+    height: 50px;
+    width:95%;
+    position: fixed;
+    display: inline;
+}
+
+ul>li>a{
+    color: red;
+}
+
+ul>li>a.sig {
+    float: right;
+    text-align: center;
+}
+
+ul>li>a.ant {
+    float: left;
+    text-align: center;
+}
