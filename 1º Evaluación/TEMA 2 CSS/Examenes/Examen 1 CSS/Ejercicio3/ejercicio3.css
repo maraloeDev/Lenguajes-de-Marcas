@@ -1,18 +1,27 @@
-ul {
-    list-style-type: none;
-    background-color: gainsboro;
-    position: fixed;
-    width: 95%;
-    height: 50px;
-    display: inline;
+p:nth-child(even) {
+    background-color: aqua;
 }
 
+
+ul {
+    list-style-type: none;
+    background-color: gray;
+    position: fixed;
+    width: 95%;
+    height: 40px;
+}
+li>a {
+    display: inline;
+    color: red;
+
+}
+
+li>a.ant {
+    float: left;
+    text-align: center;
+}
 
 li>a.sig {
     float: right;
-    text-align: center;
-}
-li>a.ant {
-    float: left;
     text-align: center;
 }
