@@ -1,0 +1,38 @@
+#principal{
+    background-color: gray;
+    position: fixed;
+    width: 99%;
+    
+}
+
+h1{
+    float: left;
+}
+ul{
+    float: right;
+    list-style-type: none;
+}
+li{
+    display: inline-block;
+    line-height: 70px;
+    margin: 10px;
+    
+}
+a{
+    text-transform: uppercase;
+    text-decoration: none;
+    
+    color: white;
+
+}
+
+#imagen{
+    top: 20%;
+    position: fixed;
+    left: 20%
+}
+
+section {
+    height: 5%;
+    width: 10%;
+}
