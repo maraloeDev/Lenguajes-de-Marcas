@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persona>
+    <nombre>Jhon Smith</nombre>
+    <nacimiento>
+        21
+        Enero
+        1989
+    </nacimiento>
+    <direccion>
+        <calle> AVDA Uni</calle>
+        <población>Leganes</población>
+        <provincia> Madrid</provincia>
+        <cpostal> 20911</cpostal>
+    </direccion>
+</persona>
